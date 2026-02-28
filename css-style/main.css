@@ -1,0 +1,47 @@
+.title-section {
+    max-width: 1920px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.Title-Background {
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.title-picture {
+    position: relative;        /* stays in flow */
+    margin-top: -55px;         /* half its height to overlap background */
+    z-index: 2;
+    width: 90px;
+    height: auto;
+}
+
+.burger-house-title{
+    height: 75px;
+    width: 872px;
+}
+
+.burger-section {
+    max-width: 1920px;
+}
+
+.burger-header{
+    display: flex;
+    align-items:flex-end;
+    height: 50px;
+    padding-left: 100px;
+}
+
+.burger-header img{
+    height: 80px;
+}
+
+.burger-header h2{
+    color: white;
+    font-size: 30px;
+}

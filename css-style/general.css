@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #E76C1F;
+    max-width: 1920px;
+    height: 80px;
+}
+
+h1 {
+    font-family: "Palanquin", sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+}

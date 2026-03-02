@@ -1,47 +1,84 @@
 .title-section {
-    max-width: 1920px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
+  max-width: 1920px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 .Title-Background {
-    width: 100%;
-    object-fit: cover;
-    z-index: 1;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 .title-picture {
-    position: relative;        /* stays in flow */
-    margin-top: -55px;         /* half its height to overlap background */
-    z-index: 2;
-    width: 90px;
-    height: auto;
+  position: relative; /* stays in flow */
+  margin-top: -55px; /* half its height to overlap background */
+  z-index: 2;
+  width: 90px;
+  height: auto;
 }
 
-.burger-house-title{
-    height: 75px;
-    width: 872px;
+.burger-house-title {
+  height: 75px;
+  width: 872px;
 }
 
 .burger-section {
-    max-width: 1920px;
+  max-width: 1920px;
 }
 
-.burger-header{
+.burger-header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-left: 100px;
+}
+
+.burger-header img {
+  height: 80px;
+}
+
+.burger-header h2 {
+  color: white;
+  font-size: 30px;
+}
+
+.burger-header-picture{
+    padding-bottom: 45px;
+    padding-right: 20px;
+}
+
+.food-offers {
+  display: flex;
+  flex-wrap: wrap; /* allow children to wrap to next row */
+  background-color: #fdeadc;
+  height: 170px;
+  width: 700px;
+  margin-left: 100px;
+  margin-top: 50px;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+.food-offers-picture{
     display: flex;
-    align-items:flex-end;
-    height: 50px;
-    padding-left: 100px;
+    align-items: center;
+    padding: 15px;
 }
 
-.burger-header img{
-    height: 80px;
+.food-offers-header-and-text{
+    width: 300px;
+    padding-right: 80px;
 }
 
-.burger-header h2{
-    color: white;
-    font-size: 30px;
+.food-offers-price-and-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    height: 160px;
 }

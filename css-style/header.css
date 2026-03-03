@@ -8,6 +8,8 @@ header img{
     justify-content: space-between;
     padding-right: 40px;
     padding-left: 40px;
+    max-width: 1440px;
+    width: 100%;
 }
 
 .Header-png{

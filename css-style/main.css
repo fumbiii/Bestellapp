@@ -1,10 +1,9 @@
 .title-section {
-  max-width: 1920px;
+  max-width: 1440px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
 }
 
 .Title-Background {
@@ -28,13 +27,16 @@
 
 .burger-section {
   max-width: 1920px;
+  width: 100%;
+  margin-top: 50px;
+  background-color:#E76C1F ;
 }
 
 .burger-header {
   display: flex;
   align-items: center;
   height: 50px;
-  padding-left: 100px;
+  max-width: 1440px;
 }
 
 .burger-header img {
@@ -58,7 +60,7 @@
   height: 170px;
   width: 700px;
   margin-left: 100px;
-  margin-top: 50px;
+  margin-top: 25px;
   border-radius: 20px;
   padding-left: 10px;
 }

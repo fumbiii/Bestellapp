@@ -1,33 +1,53 @@
-.basket {
+.basket-active{
   position: absolute;
-  right: 0;
-  top: 780px;
-  height: 600px;
+  right: 240px;
+  top: 775px;
+  height: 850px;
   width: 500px;
   background-color: #363534;
   border-radius: 20px 0px 0px 20px;
   color: #fdeadc;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  transition: 0.5ms;
 }
 
-.basket h4 {
+.basket-active h4 {
   display: flex;
   justify-content: center;
+  font-size: 36px;
 }
 
 .order-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 420px;
-  max-height: 300px;
-  height: 300px;
+  max-width: 400px;
+  max-height: 550px;
+  height: 550px;
+  width: 400px;
 }
 
 .total-price{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 50px;
+    width: 400px;
+    font-size: 24px;
+    gap: 10px
+}
+
+.price-line{
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    width: 396px;
+    height: 2px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/*.basket-not-active{
+  display: none;
 }

@@ -13,8 +13,8 @@
 }
 
 .title-picture {
-  position: relative; /* stays in flow */
-  margin-top: -55px; /* half its height to overlap background */
+  position: relative;
+  margin-top: -55px;
   z-index: 2;
   width: 90px;
   height: auto;
@@ -26,6 +26,8 @@
 }
 
 .burger-section {
+  display: flex;
+  justify-content: center;
   max-width: 1920px;
   width: 100%;
   margin-top: 50px;
@@ -34,7 +36,7 @@
 
 .burger-header {
   display: flex;
-  align-items: center;
+ justify-content: flex-start;
   height: 50px;
   max-width: 1440px;
 }
@@ -55,14 +57,20 @@
 
 .food-offers {
   display: flex;
-  flex-wrap: wrap; /* allow children to wrap to next row */
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 25px;
+  padding-left: 10px;
+  justify-content: flex-start;
+  max-width: 1440px;
+}
+
+.food-offers-div {
+  display: flex;
   background-color: #fdeadc;
   height: 170px;
-  width: 700px;
-  margin-left: 100px;
-  margin-top: 25px;
   border-radius: 20px;
-  padding-left: 10px;
+  padding-right: 30px;
 }
 
 .food-offers-picture{

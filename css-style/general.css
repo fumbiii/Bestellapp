@@ -4,6 +4,7 @@ body {
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 main {
@@ -60,4 +61,12 @@ footer {
     background-color: #E76C1F;
     height: 60px;
     margin-top: 50px;
+}
+
+.add-to-basket-button{
+    border-radius: 17px;
+    background-color: white;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
 }

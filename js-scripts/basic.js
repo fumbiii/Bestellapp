@@ -11,21 +11,49 @@ const food = [
   "Warm beef arugula Sala",
   "Mini green Salad",
   "Green Salad with sea food",
-  "Vegan green sala with Tofu",
+  "Vegan green salad with Tofu",
 ];
 
-function renderFood(){
-    let contentRef = document.getElementById("order-list");
-    contentRef.innerHTML= "";
+let currentIndex = 0;
 
-    for (let indexFood = 0; indexFood < food.length; i++) {
-        contentRef.innerHTML = getFoodTemplate(indexFood);
+function renderFood(foodIndex){
+
+    currentIndex = foodIndex;
+
+    let contentRef = document.getElementById("food-list").innerText = food[currentIndex];
+
+    for (let indexFood = 0; indexFood < food.length; indexFood++) {
+        contentRef.innerHTML += getFoodTemplate(indexFood);
     }
 }
 
-function addFoodTotTheBasket(){
-    let element = document.getElementById("basket-add-delete")
-    return `<div class="order-list">TEST</div>
+
+function openTheBasket(){
+    let element = document.getElementById("basket-add-delete");
+    element.classList.remove("basket-active");
+    element.innerHTML =`<div class="basket-active" id="basket-add-delete"><h4>Your Basket</h4><div class="order-list" id="food-list"></div>
         <div class="total-price">Subtotal <br> Delivery fee <br><div class="price-line"></div> Total</div>
-        <button class="basket-button" onclick="closeBasket(), finishOrder()">Buy now ()</button>`
+        <button class="basket-button" onclick="closeBasket()">Buy now ()</button>`
+
+    
+}
+
+
+
+function getFoodTemplate(indexFood){
+    element = document.getElementById("food-list");
+    element.innerHTML =  `<div> <p>${food[indexFood]}</p> <button></button></div> `;
+    //was wird hergenommen?
+    //von wo wird es hergenommen?
+    //wohin wird es gesteckt?
+    //was soll es anziegen?
+    // in welchem format soll es angezeigt werden?
+    //wie viel soll es anzeigen?
+    //
+}
+
+function closeBasket (){
+    let element = document.getElementById("basket-add-delete");
+    element.innerHTML = " ";
+    element.classList.remove("basket-active");
 }

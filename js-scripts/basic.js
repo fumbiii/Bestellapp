@@ -15,45 +15,76 @@ const food = [
 ];
 
 let currentIndex = 0;
+let count = 1;
+let foodCount = 1;
 
-function renderFood(foodIndex){
+function renderFood(foodIndex) {
+  currentIndex = foodIndex;
 
-    currentIndex = foodIndex;
+  let contentRef = (document.getElementById("food-list").innerText =
+    food[currentIndex]);
 
-    let contentRef = document.getElementById("food-list").innerText = food[currentIndex];
-
-    for (let indexFood = 0; indexFood < food.length; indexFood++) {
-        contentRef.innerHTML += getFoodTemplate(indexFood);
-    }
+  for (let indexFood = 0; indexFood < food.length; indexFood++) {
+    contentRef.innerHTML += getFoodTemplate(indexFood);
+  }
 }
 
-
-function openTheBasket(){
-    let element = document.getElementById("basket-add-delete");
-    element.classList.remove("basket-active");
-    element.innerHTML =`<div class="basket-active" id="basket-add-delete"><h4>Your Basket</h4><div class="order-list" id="food-list"></div>
-        <div class="total-price">Subtotal <br> Delivery fee <br><div class="price-line"></div> Total</div>
-        <button class="basket-button" onclick="closeBasket()">Buy now ()</button>`
-
-    
+function openTheBasket() {
+  let element = document.getElementById("basket-add-delete");
+  element.classList.remove("basket-active");
+  element.innerHTML = `<div class="basket-active" id="basket-add-delete">
+  <h4>Your Basket</h4>
+  <div class="order-list" id="food-list"></div>
+  <div class="total-price">Subtotal <br> Delivery fee <br><div class="price-line"></div> Total</div>
+  <button class="basket-button" onclick="closeBasket()">Buy now ()</button>`;
 }
 
-
-
-function getFoodTemplate(indexFood){
-    element = document.getElementById("food-list");
-    element.innerHTML =  `<div> <p>${food[indexFood]}</p> <button></button></div> `;
-    //was wird hergenommen?
-    //von wo wird es hergenommen?
-    //wohin wird es gesteckt?
-    //was soll es anziegen?
-    // in welchem format soll es angezeigt werden?
-    //wie viel soll es anzeigen?
-    //
+function getFoodTemplate() {
+  element = document.getElementById("food-list");
+  basket.push(food[currentIndex]);
+  element.innerHTML = `<div class="food-styling" id="styling-for-food">
+  <div class="food-in-basket-headline">
+  <p class="food-counter-headline" id="food-counter"> x
+  </p>${food[currentIndex]} 
+  </div>
+  <div class="delete-and-add-button-div">
+  <button class="delete-food-from-basket"onclick="decreaseFoodQuantityInBasket(),decreaseFoodQuantityInBasketHeadline()">
+  <img src="./png/delete.png">
+  </button>
+  <p id="count"></p>
+  <button class="add-more-food"onclick="addFoodInTheBasket(), addFoodInTheBasketHeadline()">
+  +
+  </button>
+  </div>
+  </div>`;
+  let foodStyling = document.getElementById("styling-for-food");
+  foodStyling.classList.add("food-styling");
+  updateFoodInTheBasket();
+  updateFoodInTheBasketHeadline();
 }
 
-function closeBasket (){
-    let element = document.getElementById("basket-add-delete");
-    element.innerHTML = " ";
-    element.classList.remove("basket-active");
+function changeDeleteImgToDecreaseImg (){
+  if ("count" > 0);
+  
+}
+
+function renderFoodStyle() {
+  element = basket[currentIndex];
+  element.add();
+}
+
+function closeBasket() {
+  let element = document.getElementById("basket-add-delete");
+  element.innerHTML = " ";
+  element.classList.remove("basket-active");
+}
+
+function deleteFoodFromBasket() {
+  let element = document.getElementById("food-in-orderlist");
+  element.innerHTML = " ";
+  element.classList.remove("food-in-order-list");
+
+  if ("add-delete-div" !== 1) {
+    element.innerHTML = "";
+  }
 }

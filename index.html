@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css-style/header.css" />
     <link rel="stylesheet" href="./css-style/main.css" />
     <link rel="stylesheet" href="./css-style/basket.css"/>
-    <script src="./js-scripts/basic.js"></script>
+    <script src="./js-scripts/basic.js" src="./js-scripts/update.js"></script>
   </head>
   <body>
     <header>
@@ -68,65 +68,65 @@
         </div>
       </div>
 
-      <section class="food-offers">
+      <section class="food-offers" >
         <div class="food-offers-div">
         <div class="food-offers-picture">
         <img src="./png/Veggie-mushroom-black-burger.png" alt="Veggie-Mushroom Burger with black Buns">
         </div>
         <div class="food-offers-header-and-text">
-          <h3>Veggie mushroom black Burger</h3>
+          <h3 id="food-id">Veggie mushroom black Burger</h3>
           <p>Mixed green salad, Tomatoes, Edamame, Mushrooms</p>
         </div>
         <div class="food-offers-price-and-button">
           <p class="price">16,90€</p>
-          <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(0)">Add to basket</button>
+          <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(0), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
         </div>
         </div>
       </section>
-      <section class="food-offers">
+      <section class="food-offers" >
         <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/all-meat-burger.png" alt="Burger with Beef,Bacon,Dill pickels, Smocked Cheese, Ketchup, BBQ Sauce and Sesame Buns">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>All meat Burger</h3>
+              <h3 id="food-id">All meat Burger</h3>
               <p>Beef, Bacon, Dill pickels, Smoked Cheese, Ketchup and BBQ sauce</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">15,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket(),getFoodTemplate(), renderFood(1)">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(),getFoodTemplate(), renderFood(1), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
           </div>
       </section>
-      <section class="food-offers">
+      <section class="food-offers" >
         <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/beef-red-burger.png" alt="Beef Burger with Cheese, Tomatoes, Lettuce, Onions and red Buns">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Beef red Burger</h3>
+              <h3 id="food-id">Beef red Burger</h3>
               <p>Beef, Cheese, Tomatoes, Lettuce and Onion</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">14,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(2), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
           </div>
           </section>
         
       </section>
-      <section class="food-offers">
+      <section class="food-offers" >
         <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/big-chicken-burger.png" alt="Chicken Burger with Cheese, Tomatoes, Lettuce, Onion, Bell pepper and Sesame Buns">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Big chicken Burger</h3>
+              <h3 id="food-id">Big chicken Burger</h3>
               <p>Chicken, Cheese, Tomatoes, Lettuce, Onion and Bell pepper</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">15,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(3), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
             </div>
           </section>
@@ -142,34 +142,34 @@
         </header>
       </section>
        </section>
-      <section class="food-offers">
+      <section class="food-offers" >
         <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/Pizza-margherita.png" alt="Pizza Margherita with Mozzarella">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Pizza Margherita</h3>
+              <h3 id="food-id">Pizza Margherita</h3>
               <p>Tomatoe Sauce, Mozzarella</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">11,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket() , getFoodTemplate(), renderFood(4), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
             </div>
           </section>
            </section>
-      <section class="food-offers">
+      <section class="food-offers" >
         <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/Pizza-Chorizo.png" alt="Pizza Chorizo with Tomatoe slices, Mozzarella and Chorizo">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Pizza Chorizo</h3>
+              <h3 id="food-id">Pizza Chorizo</h3>
               <p>Tomatoe slices, Mozzarella, Chorizo</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">13,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(5), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
             </div>
           </section>
@@ -180,28 +180,28 @@
             <img src="./png/Pizza-funghi.png" alt="Pizza Funghi with red Onions, Olives, Button Mushrooms and Mozzarella">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Pizza Funghi</h3>
+              <h3 id="food-id">Pizza Funghi</h3>
               <p>Red Onion, Olives, Button Mushrooms, Mozzarella</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">12,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(6), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
             </div>
           </section>
            </section>
-      <section class="food-offers">
+      <section class="food-offers" >
         <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/Pizza-quattro-formaggi-with-chicken.png" alt="Pizza Pizza Quattro Formaggi with Chicken, Mozzarella, Gorgonzola, Fontina and Parmigiano Reggiano">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Pizza Quattro Formaggi with Chicken</h3>
+              <h3 id="food-id">Pizza Quattro Formaggi with Chicken</h3>
               <p>Chicken, Mozzarella, Gorgonzola, Fontina, Parmigiano Reggiano</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">15,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(7), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
             </div>
           </section>
@@ -222,63 +222,64 @@
             <img src="./png/Warm-beef-argula-salad.png" alt="Warm Beef arugula Salad">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Warm beef arugula Salad</h3>
+              <h3 id="food-id">Warm beef arugula Salad</h3>
               <p>Beef, Arugula, Field Salad, Greek Feta, Cherry Tomatoes, Sun-dried Tomatoes, Balsamic vinegar dressing</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">16,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(8), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
             </div>
           </section>
-          <section class="food-offers">
+          <section class="food-offers" >
             <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/mini-green-salad.png" alt="Mini green Salad">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Mini green Salad</h3>
+              <h3 id="food-id">Mini green Salad</h3>
               <p>Green salad, Cucumber, Carrots, Parsely, Radishes</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">7,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(9), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
             </div>
           </section>
-          <section class="food-offers">
+          <section class="food-offers" >
             <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/Green-salad-with-sea-food.png" alt="Green Salad with sea food">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Green Salad with sea food</h3>
+              <h3 id="food-id">Green Salad with sea food</h3>
               <p>Mixed greens, Cherry Tomatoes, Red Onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">16,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(10), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()">Add to basket</button>
             </div>
             </div>
           </section>
-          <section class="food-offers">
+          <section class="food-offers" >
             <div class="food-offers-div">
             <div class="food-offers-picture">
             <img src="./png/Vegan-green-salad-with-tofu.png" alt="Vegan green salad with tofu">
             </div>
             <div class="food-offers-header-and-text">
-              <h3>Vegan green salad with Tofu</h3>
+              <h3 id="food-id">Vegan green salad with Tofu</h3>
               <p>Green salad, Cherry Tomatoes, Cucumber, Baby spinach, Edamame, Bittercress, Tofu, Peanuts</p>
             </div>
             <div class="food-offers-price-and-button">
               <p class="price">14,90€</p>
-              <button class="add-to-basket-button" onclick="openTheBasket()">Add to basket</button>
+              <button class="add-to-basket-button" onclick="openTheBasket(), getFoodTemplate(), renderFood(11), resetFoodQuantityInBasket(), resetFoodQuantityInBasketHeadline()" >Add to basket</button>
             </div>
             </div>
           </section>
     </main>
     <footer>
       Placeholder
+     
     </footer>
 
     

@@ -1,4 +1,4 @@
-.basket-active{
+.basket-active {
   position: absolute;
   right: 240px;
   top: 750px;
@@ -28,23 +28,23 @@
   width: 400px;
 }
 
-.total-price{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    font-size: 24px;
-    gap: 10px
+.total-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+  font-size: 24px;
+  gap: 10px;
 }
 
-.price-line{
-    border-style: solid;
-    border-width: 2px;
-    border-color: white;
-    width: 396px;
-    height: 2px;
-    background-color: white;
-    border-radius: 8px;
+.price-line {
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  width: 396px;
+  height: 2px;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .basket-button {
@@ -53,7 +53,7 @@
   height: 50px;
   border-radius: 15px;
   font-size: 25px;
-  background-color: #E76C1F;
+  background-color: #e76c1f;
   color: white;
   font-family: "Palanquin", sans-serif;
   font-weight: 700;
@@ -71,7 +71,90 @@
   justify-content: space-between;
 }
 
-.basket-empty img{
+.basket-empty img {
   height: 150px;
   width: 150px;
+}
+
+.delete-food-button {
+  border: none;
+  background-color: #fdeadc;
+  cursor: pointer;
+}
+
+.food-in-order-list {
+  background-color: #fdeadc;
+  color: black;
+  width: 400px;
+  height: 125px;
+  border-radius: 10px;
+}
+
+.food-in-order-list p {
+  padding-left: 20px;
+}
+
+.add-food-button {
+  border: none;
+  background-color: #fdeadc;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
+.add-delete-div {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  padding-left: 20px;
+}
+
+.food-styling {
+  background-color: #fdeadc;
+  color: black;
+  height: 100px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.delete-food-from-basket {
+  background-color: #fdeadc;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.add-more-food {
+  background-color: #fdeadc;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+}
+
+.delete-and-add-button-div {
+  display: flex;
+  align-items: center;
+}
+
+.delete-and-add-button-div p {
+  padding-left: 5px;
+}
+
+.food-counter-headline {
+  margin: 0;
+  padding-right: 10px;
+  padding-left: 5px;
+}
+
+.food-in-basket-headline {
+  display: flex;
 }

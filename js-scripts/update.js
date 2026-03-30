@@ -7,11 +7,11 @@ function addFoodInTheBasket() {
   updateFoodInTheBasket();
 }
 function decreaseFoodQuantityInBasket() {
-  count--
+  count--;
   updateFoodInTheBasket();
 }
-function resetFoodQuantityInBasket () {
-  count = 1
+function resetFoodQuantityInBasket() {
+  count = 1;
   updateFoodInTheBasket();
 }
 
@@ -30,6 +30,6 @@ function decreaseFoodQuantityInBasketHeadline() {
 }
 
 function resetFoodQuantityInBasketHeadline() {
-  foodCount = 1
+  foodCount = 1;
   updateFoodInTheBasketHeadline();
 }

@@ -48,7 +48,7 @@ function getFoodTemplate() {
   </p>${food[currentIndex]} 
   </div>
   <div class="delete-and-add-button-div">
-  <button class="delete-food-from-basket"onclick="decreaseFoodQuantityInBasket(),decreaseFoodQuantityInBasketHeadline()">
+  <button class="delete-food-from-basket"onclick="decreaseFoodQuantityInBasket(),decreaseFoodQuantityInBasketHeadline(), changeDeleteImgToDecreaseImg()">
   <img src="./png/delete.png">
   </button>
   <p id="count"></p>
@@ -61,16 +61,6 @@ function getFoodTemplate() {
   foodStyling.classList.add("food-styling");
   updateFoodInTheBasket();
   updateFoodInTheBasketHeadline();
-}
-
-function changeDeleteImgToDecreaseImg (){
-  if ("count" > 0);
-  
-}
-
-function renderFoodStyle() {
-  element = basket[currentIndex];
-  element.add();
 }
 
 function closeBasket() {
@@ -86,5 +76,14 @@ function deleteFoodFromBasket() {
 
   if ("add-delete-div" !== 1) {
     element.innerHTML = "";
+  }
+}
+
+function changeDeleteImgToDecreaseImg() {
+  if (count === 0) {
+    element = document.getElementById("styling-for-food");
+    element.remove();
+  } else {
+    decreaseFoodQuantityInBasket();
   }
 }

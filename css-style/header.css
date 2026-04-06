@@ -1,32 +1,32 @@
-header img{
-    width: 80px;
+header img {
+  width: 80px;
 }
-.header-img{
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 40px;
-    padding-left: 40px;
-    max-width: 1440px;
-    width: 100%;
-}
-
-.Header-png{
-    height: 30px;
+.header-img {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 40px;
+  padding-left: 40px;
+  max-width: 1440px;
+  width: 100%;
 }
 
-.menu-button-img{
-    height: 30px;
-    width: 40px;
+.Header-png {
+  height: 30px;
 }
 
-.menu-button{
-    background-color: #E76C1F;
-    border: 0;
-    padding: 0;
+.menu-button-img {
+  height: 30px;
+  width: 40px;
+}
+
+.menu-button {
+  background-color: #e76c1f;
+  border: 0;
+  padding: 0;
 }
 
 .menu-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

@@ -1,72 +1,72 @@
 body {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
 }
 
 header {
-    background-color: #E76C1F;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1920px;
-    width: 100%;
+  background-color: #e76c1f;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1920px;
+  width: 100%;
 }
 
 h1 {
-    font-family: "Palanquin", sans-serif;
-    font-weight: bold;
-    font-size: 24px;
+  font-family: "Palanquin", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
 }
 
-h2{
-    font-family: "Palanquin", sans-serif;
-    font-weight: bold;
+h2 {
+  font-family: "Palanquin", sans-serif;
+  font-weight: bold;
 }
 
 h3 {
-   font-family: "Palanquin", sans-serif; 
-   font-weight: 600;
+  font-family: "Palanquin", sans-serif;
+  font-weight: 600;
 }
 
-p{
-    font-family: "Palanquin", sans-serif;
-    font-weight: 500;
+p {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 500;
 }
 
 .price {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    max-width: 1920px;
-    width: 100%;
-    background-color: #E76C1F;
-    height: 60px;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  max-width: 1920px;
+  width: 100%;
+  background-color: #e76c1f;
+  height: 60px;
+  margin-top: 50px;
 }
 
-.add-to-basket-button{
-    border-radius: 17px;
-    background-color: white;
-    width: 100px;
-    height: 30px;
-    cursor: pointer;
+.add-to-basket-button {
+  border-radius: 17px;
+  background-color: white;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
 }

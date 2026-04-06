@@ -42,22 +42,29 @@ function openTheBasket() {
 function getFoodTemplate() {
   element = document.getElementById("food-list");
   basket.push(food[currentIndex]);
+  addFoodToTheBasket()
+}
+
+function addFoodToTheBasket(){
   element.innerHTML = `<div class="food-styling" id="styling-for-food">
   <div class="food-in-basket-headline">
   <p class="food-counter-headline" id="food-counter"> x
   </p>${food[currentIndex]} 
   </div>
-  <div class="delete-and-add-button-div">
-  <button class="delete-food-from-basket"onclick="decreaseFoodQuantityInBasket(),decreaseFoodQuantityInBasketHeadline(), changeDeleteImgToDecreaseImg()">
+  <div id="delete-and-add-button-div-id" class="delete-and-add-button-div">
+  <button id="delete-food-from-basket-button" class="delete-food-from-basket" style="display: flex;" onclick="decreaseFoodQuantityInBasket(),decreaseFoodQuantityInBasketHeadline(), changeDeleteImgToDecreaseImg()">
   <img src="./png/delete.png">
   </button>
+  
+  <button id="decrease-basket-quantity-basket" class="decrease-basket-quantity" style="display: none;" onclick="removeTheMinusButton(), decreaseFoodQuantityInBasket(), decreaseFoodQuantityInBasketHeadline(), updateDeleteButton()"> - </button>
+  
   <p id="count"></p>
-  <button class="add-more-food"onclick="addFoodInTheBasket(), addFoodInTheBasketHeadline()">
+  <button class="add-more-food" onclick="addFoodInTheBasket(), addFoodInTheBasketHeadline(), changeDeleteButtonToMinusButton()">
   +
   </button>
   </div>
   </div>`;
-  let foodStyling = document.getElementById("styling-for-food");
+   let foodStyling = document.getElementById("styling-for-food");
   foodStyling.classList.add("food-styling");
   updateFoodInTheBasket();
   updateFoodInTheBasketHeadline();
@@ -79,11 +86,47 @@ function deleteFoodFromBasket() {
   }
 }
 
+function updateDeleteButton() {
+  const deleteButton = document.getElementById("delete-food-from-basket-button");
+  const decreaseButton = document.getElementById("decrease-basket-quantity-basket");
+
+  if (count >= 2) {
+    // Show minus button, hide delete button
+    if (deleteButton) deleteButton.style.display = "none";
+    if (decreaseButton) decreaseButton.style.display = "inline-block";
+  } else if (count === 1) {
+    // Show delete button, hide minus button
+    if (deleteButton) deleteButton.style.display = "flex";
+    if (decreaseButton) decreaseButton.style.display = "none";
+    
+  }
+  updateFoodInTheBasket()
+}
+
 function changeDeleteImgToDecreaseImg() {
   if (count === 0) {
     element = document.getElementById("styling-for-food");
     element.remove();
   } else {
     decreaseFoodQuantityInBasket();
+    updateDeleteButton();
   }
+}
+
+function changeDeleteImgToDecreaseImgHeadline() {
+  if (foodCount === 0) {
+    element = document.getElementById("styling-for-food");
+    element.remove();
+  } else {
+    decreaseFoodQuantityInBasketHeadline();
+    updateDeleteButton();
+    }
+}
+
+function changeDeleteButtonToMinusButton(){
+  updateDeleteButton();
+}
+
+function removeTheMinusButton() {
+  updateDeleteButton();
 }

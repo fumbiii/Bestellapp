@@ -132,12 +132,15 @@
 }
 
 .add-more-food {
+  padding-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #fdeadc;
   border: none;
   cursor: pointer;
   height: 30px;
   width: 30px;
-  padding: 0;
 }
 
 .delete-and-add-button-div {
@@ -157,4 +160,16 @@
 
 .food-in-basket-headline {
   display: flex;
+}
+
+.decrease-basket-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background-color: #fdeadc;
+  border: none;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  padding: 0;
 }

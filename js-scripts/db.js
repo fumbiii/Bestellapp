@@ -1,0 +1,87 @@
+let dishes = [
+    {
+        "category": "Burger & Sandwiches",
+        "name": "Veggie mushroom black burger",
+        "price": "16.90",
+        "indigredients": "Mixed green salad, Tomatoes, Edamame, Mushrooms",
+        "image": "./assets/png/Veggie-mushroom-black-burger.png",
+    },
+    {
+        "category": "Burger & Sandwiches",
+        "name": "All meat burger",
+        "price": "15.90",
+        "indigredients": "Beef, Bacon, Dill pickles, Smoked cheese, Ketchup, BBQ souse",
+        "image": "./assets/png/all-meat-burger.png",
+    },
+    {
+        "category": "Burger & Sandwiches",
+        "name": "Beef red burger",
+        "price": "14.90",
+        "indigredients": "Beef, Cheese, Tomatoes, Lettuce, Onion",
+        "image": "./assets/png/beef-red-burger.png",
+    },
+    {
+        "category": "Burger & Sandwiches",
+        "name": "Big chicken burger",
+        "price": "15.90",
+        "indigredients": "Chicken, Cheese, Tomatoes, Lettuce, Onion, Bell pepper",
+        "image": "./assets/png/big-chicken-burger.png",
+    },
+    {
+        "category": "Pizza",
+        "name": "Pizza Margherita",
+        "price": "11.90",
+        "indigredients": "Tomato Sauce, Mozzarella",
+        "image": "./assets/png/Pizza-margherita.png",
+    },
+    {
+        "category": "Pizza",
+        "name": "Pizza Chorizo",
+        "price": "13.90",
+        "indigredients": "Tomato slices, Mozzarella, Chorizo",
+        "image": "./assets/png/Pizza-Chorizo.png",
+    },
+    {
+        "category": "Pizza",
+        "name": "Funghi",
+        "price": "12.90",
+        "indigredients": "Red onion, Olives, Button Mushrooms, Mozzarella",
+        "image": "./assets/png/Pizza-funghi.png",
+    },
+    {
+        "category": "Pizza",
+        "name": "Quattro Formaggi with Chicken",
+        "price": "15.90",
+        "indigredients": "Chicken, Mozzarella, Gorgonzola, Fontina,  Parmigiano Reggiano",
+        "image": "./assets/png/Pizza-quattro-formaggi-with-chicken.png",
+    },
+    // Salat
+    {
+        "category": "Salad",
+        "name": "Warm beef arugula salad",
+        "price": "16.90",
+        "indigredients": "Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing",
+        "image": "./assets/png/Warm-beef-argula-salad.png",
+    },
+        {
+        "category": "Salad",
+        "name": "Mini green Salad",
+        "price": "7.90",
+        "indigredients": "Green salad, Cucumber, Carrots, Parsley, Radishes",
+        "image": "./assets/png/mini-green-salad.png",
+    },
+        {
+        "category": "Salad",
+        "name": "Green Salad with sea food",
+        "price": "16.90",
+        "indigredients": "Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill",
+        "image": "./assets/png/Green-salad-with-sea-food.png",
+    },
+        {
+        "category": "Salad",
+        "name": "Vegan green salad with tofu",
+        "price": "14.90",
+        "indigredients": "Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame, Radishes, Bittercress, Tofu, Peanuts",
+        "image": "./assets/png/Vegan-green-salad-with-tofu.png",
+        }
+];

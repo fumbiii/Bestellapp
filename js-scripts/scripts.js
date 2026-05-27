@@ -48,19 +48,68 @@ function addToBasket(dishName) {
     basket.push(dish);
     localStorage.setItem("basket", JSON.stringify(basket));
     updateBasket();
-    // TODO: Update basket UI (e.g., refresh the basket display)
   }
+  updateCounter();
+  updateDecreaseButtonBasket();
 }
 
 function updateBasket() {
-    const basketContainer = document.getElementById("empty-basket");
-    basketContainer.innerHTML = `<div class="dish-in-basket">
-    <p> 1 x ${dishes.name}</p>
-    <div>
-    <button class="deleteDishFromBasket"><img src="./assets/png/delete.png"></img></button>
-    <button class="addMoreDishes">+</button>
-    <p>${dishes.price}</p>
-    </div>
-    </div>`;
- 
+  const basketContainer = document.getElementById("empty-basket");
+
+  // Display all items in the basket
+  basketContainer.innerHTML = basket
+    .map(
+      (dish) => `
+        <div class="dish-in-basket">
+            <p class="headerDishInBasket"><span id="dishCounter-meals"></span> x ${dish.name}</p>
+            <div class="basketButtonsAndPrice">
+            <div class="add-delete-buttons" id="add-delete-buttons-basket">
+                <button class="deleteDishFromBasket" onclick="decreaseCounter()" id="deleteDishFromBasket"><img src="./assets/png/delete.png"></button>
+                <p id="dishCounter-basket"></p>
+                <button class="addMoreDishes" id="addMoreDishesCounter" onclick="addCounter()">+</button>
+                </div>
+                <div>
+                <p>${dish.price} €</p>
+                </div>
+                </div>
+            
+        </div>
+    `,
+    )
+    .join("");
+}
+
+let dishCounter = 1;
+
+function updateCounter() {
+  document.getElementById("dishCounter-basket").innerHTML = dishCounter;
+  document.getElementById("dishCounter-meals").innerHTML = dishCounter;
+}
+
+function addCounter() {
+  dishCounter++;
+  updateCounter();
+  updateDecreaseButtonBasket();
+}
+
+function decreaseCounter() {
+  dishCounter--;
+  updateCounter();
+  updateDecreaseButtonBasket();
+}
+
+function updateDecreaseButtonBasket() {
+  if (dishCounter > 1) {
+    document.getElementById("deleteDishFromBasket").style.display = "none";
+    document.getElementById("add-delete-buttons-basket").innerHTML =
+      `<button class="decreaseDishCounter" onclick="decreaseCounter ()">-</button>
+                                                                        <p id="dishCounter-basket"></p>
+                                                                        <button class="addMoreDishes" id="addMoreDishesCounter" onclick="addCounter()">+</button>`;
+  } else if(dishCounter = 1) {
+    document.getElementById("add-delete-buttons-basket").innerHTML = `<button class="deleteDishFromBasket" onclick="decreaseCounter()" id="deleteDishFromBasket"><img src="./assets/png/delete.png"></button>
+                <p id="dishCounter-basket"></p>
+                <button class="addMoreDishes" id="addMoreDishesCounter" onclick="addCounter()">+</button>`
+    
+  }
+  updateCounter();
 }

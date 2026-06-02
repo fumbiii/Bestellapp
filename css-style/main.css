@@ -132,25 +132,25 @@
 
 .dish-price-and-add-button {
   height: 110px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 70px;
 }
 
 .dish-price {
-  font-size:  14px;
+  font-size: 14px;
   margin: 0;
 }
 
-.add-to-basket-btn{
-      width: 60px;
-    height: 30px;
-    font-size: 12px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
+.add-to-basket-btn {
+  width: 60px;
+  height: 30px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
 }
 
 .dishes {

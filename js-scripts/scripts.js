@@ -44,88 +44,78 @@ function renderDishes() {
 
 function addToBasket(dishName) {
   const dish = dishes.find((d) => d.name === dishName);
-  if (dish) {
-    basket.push(dish);
-    localStorage.setItem("basket", JSON.stringify(basket));
-  }
-  const existing = basket.find(function(item){
-    return  item.name === dishName;
-  })
+  const existing = basket.find((item) => item.name === dishName);
 
   if (existing) {
-    dishCounter++
+    existing.count++;
   } else {
     dish.count = 1;
     basket.push(dish);
   }
+
+  localStorage.setItem("basket", JSON.stringify(basket));
   updateBasket();
-  updateCounter();
-  updateDecreaseButtonBasket();
 }
 
 function updateBasket() {
   const basketContainer = document.getElementById("empty-basket");
 
-  // Display all items in the basket
   basketContainer.innerHTML = basket
     .map(
-      (dish) => `
-        <div class="dish-in-basket">
-            <p class="headerDishInBasket"><span id="dishCounter-meals"></span> x ${dish.name}</p>
-            <div class="basketButtonsAndPrice">
-            <div class="add-delete-buttons" id="add-delete-buttons-basket">
-                <button class="deleteDishFromBasket" onclick="decreaseCounter()" id="deleteDishFromBasket"><img src="./assets/png/delete.png"></button>
-                <p id="dishCounter-basket"></p>
-                <button class="addMoreDishes" id="addMoreDishesCounter" onclick="addCounter()">+</button>
-                </div>
-                <div>
-                <p id="dishPriceInBasket">${dish.price} €</p>
-                </div>
-                </div>
-            
+      (dish, index) => `
+      <div class="dish-in-basket">
+        <p class="headerDishInBasket">
+          <span id="dishCounter-meals-${index}">${dish.count || 1}</span> x ${dish.name}
+        </p>
+        <div class="basketButtonsAndPrice">
+          <div class="add-delete-buttons" id="add-delete-buttons-basket-${index}">
+            <button class="deleteDishFromBasket" onclick="decreaseCounter(${index})" 
+              id="deleteDishFromBasket-${index}">
+              ${(dish.count || 1) >= 2 ? '-' : '<img src="./assets/png/delete.png">'}
+            </button>
+            <p id="dishCounter-basket-${index}">${dish.count || 1}</p>
+            <button class="addMoreDishes" onclick="addCounter(${index})">+</button>
+          </div>
+          <div>
+            <p id="dishPriceInBasket">${(dish.price * (dish.count || 1)).toFixed(2)} €</p>
+          </div>
         </div>
+      </div>
     `,
+
+  
     )
     .join("");
+
+  // Update all displayed counters
+  basket.forEach((dish, index) => {
+    const counterElement = document.getElementById(
+      `dishCounter-basket-${index}`,
+    );
+    if (counterElement) {
+      counterElement.innerHTML = dish.count || 1;
+    }
+  });
 }
 
-let dishCounter = 0;
-
-function updateCounter() {
-  document.getElementById("dishCounter-basket").innerHTML = dishCounter;
-  document.getElementById("dishCounter-meals").innerHTML = dishCounter;
-}
-
-function addCounter() {
-  dishCounter++;
-  updateCounter();
-  updateDecreaseButtonBasket();
-}
-
-function decreaseCounter() {
-  dishCounter--;
-  updateCounter();
-  updateDecreaseButtonBasket();
-}
-
-function updateDecreaseButtonBasket() {
-  if (dishCounter > 1) {
-    document.getElementById("deleteDishFromBasket").style.display = "none";
-    document.getElementById("add-delete-buttons-basket").innerHTML =
-      `<button class="decreaseDishCounter" onclick="decreaseCounter ()">-</button>
-                                                                        <p id="dishCounter-basket"></p>
-                                                                        <button class="addMoreDishes" id="addMoreDishesCounter" onclick="addCounter()">+</button>`;
-  } else if ((dishCounter = 1)) {
-    document.getElementById("add-delete-buttons-basket").innerHTML =
-      `<button class="deleteDishFromBasket" onclick="deleteDishFromBasket(basket)" id="deleteDishFromBasket"><img src="./assets/png/delete.png"></button>
-                <p id="dishCounter-basket"></p>
-                <button class="addMoreDishes" id="addMoreDishesCounter" onclick="addCounter()">+</button>`;
+function addCounter(index) {
+  if (basket[index]) {
+    basket[index].count = (basket[index].count || 1) + 1;
+    localStorage.setItem("basket", JSON.stringify(basket));
+    updateBasket();
   }
-  updateCounter();
 }
 
-function deleteDishFromBasket(basket) {
-  basket.splice(basket, 1);
-  localStorage.removeItem("basket");
-  updateBasket();
+function decreaseCounter(index) {
+  if (basket[index]) {
+    basket[index].count = (basket[index].count || 1) - 1;
+
+    if (basket[index].count <= 0) {
+      basket.splice(index, 1);
+    }
+
+    localStorage.setItem("basket", JSON.stringify(basket));
+    updateBasket();
+  }
 }
+

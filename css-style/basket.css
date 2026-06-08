@@ -25,7 +25,7 @@
   text-align: center;
   font-size: 20px;
   width: 400px;
-  height: 300px;
+  height: 500px;
   justify-content: space-between;
 }
 
@@ -90,4 +90,35 @@
 .add-delete-buttons {
   display: flex;
   align-items: center;
+}
+
+.deleteDishFromBasket {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.subtotal {
+  width: 400px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deliveryFee {
+  width: 400px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalprice {
+  display: flex;
+  width: 400px;
+  align-items: flex-end;
+  height: 100px;
 }

@@ -82,16 +82,6 @@
   font-size: 20px;
 }
 
-.decreaseDishCounter {
-  background-color: #f5deb3;
-  border: none;
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 0;
-}
-
 .add-delete-buttons {
   display: flex;
   align-items: center;

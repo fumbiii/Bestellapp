@@ -59,44 +59,6 @@
   padding-right: 20px;
 }
 
-.food-offers {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-top: 25px;
-  padding-left: 10px;
-  justify-content: flex-start;
-  max-width: 1440px;
-}
-
-.food-offers-div {
-  display: flex;
-  background-color: #fdeadc;
-  height: 170px;
-  border-radius: 20px;
-  padding-right: 30px;
-}
-
-.food-offers-picture {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-}
-
-.food-offers-header-and-text {
-  width: 300px;
-  padding-right: 80px;
-}
-
-.food-offers-price-and-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 60px;
-  height: 160px;
-}
-
 .dish {
   display: flex;
   align-items: center;

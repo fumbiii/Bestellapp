@@ -1,0 +1,50 @@
+.dialog-order-confirmed{
+  border: none;
+  background-color: #363534;
+  height: 400px;
+  width: 500px;
+  border-radius: 20px;
+}
+
+.dialog-order-confirmed::backdrop{
+    background-color: rgba(181, 180, 180, 75%)
+}
+
+.dialogButton {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.dialogButton button {
+  border: none;
+  background-color: #363534;
+  color: white;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+      margin-right: 10px;
+
+}
+
+.dialog-picture {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 500px;
+}
+
+.dialog-picture p {
+  margin: 2px;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Palanquin", sans-serif;
+}
+
+.dialog-picture img {
+  height: 100px;
+  width: 150px;
+}

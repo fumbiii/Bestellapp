@@ -87,7 +87,6 @@ function updateBasket() {
     )
     .join("");
 
-  // Update all displayed counters
   basket.forEach((dish, index) => {
     const counterElement = document.getElementById(
       `dishCounter-basket-${index}`,
@@ -96,6 +95,9 @@ function updateBasket() {
       counterElement.innerHTML = dish.count || 1;
     }
   });
+  subtotalPriceCaltulation();
+  totalPriceCalculation();
+  payingButtonBasket();
 }
 
 function addCounter(index) {
@@ -104,6 +106,9 @@ function addCounter(index) {
     localStorage.setItem("basket", JSON.stringify(basket));
     updateBasket();
   }
+  subtotalPriceCaltulation();
+  totalPriceCalculation();
+  payingButtonBasket();
 }
 
 function decreaseCounter(index) {
@@ -117,5 +122,49 @@ function decreaseCounter(index) {
     localStorage.setItem("basket", JSON.stringify(basket));
     updateBasket();
   }
+  subtotalPriceCaltulation();
+  totalPriceCalculation();
+  payingButtonBasket();
 }
 
+function subtotalPriceCaltulation() {
+  const subtotal = basket.reduce((total, dish) => {
+    return total + (dish.price * (dish.count || 1));
+  }, 0);
+  
+  document.getElementById("subtotalPrice").innerHTML = `<p>${subtotal.toFixed(2)} €</p>`;
+}
+
+function totalPriceCalculation() {
+  const subtotal = basket.reduce((total, dish) => {
+    return total + (dish.price * (dish.count || 1));
+  }, 0);
+  let baskettotal = subtotal + 4.99;
+  if (basket.length <= 0) {
+    baskettotal = 0;
+  }
+  document.getElementById("totalpricebasket").innerHTML = `<p>${baskettotal.toFixed(2)} €</p>`;
+}
+
+function payingButtonBasket(){
+   const subtotal = basket.reduce((total, dish) => {
+    return total + (dish.price * (dish.count || 1));
+  }, 0);
+  let baskettotal = subtotal + 4.99;
+
+  if (basket.length <= 0) {
+    baskettotal = 0;
+  }
+  document.getElementById("payingButtonPrice").innerHTML = `<p>${baskettotal.toFixed(2)} €</p>`;
+}
+
+function orderConfirmedModal() {
+  document.getElementById("orderconfirmed").showModal();
+}
+
+function orderConfirmedModalClose() {
+  document.getElementById("orderconfirmed").close();
+  basket.splice(0);
+  localStorage.setItem("basket", JSON.stringify(basket));
+  updateBasket();
+}

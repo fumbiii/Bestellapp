@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css-style/header.css" />
     <link rel="stylesheet" href="./css-style/main.css" />
     <link rel="stylesheet" href="./css-style/basket.css"/>
+    <link rel="stylesheet" href="./css-style/dialog.css"/>
     <script src="./js-scripts/scripts.js"></script>
     <script  src="./js-scripts/db.js"></script>
   </head>
@@ -70,9 +71,11 @@
         <p >Nothing there yet.<br>Go ahead and choose something <br>delicious!</p>
         <img src="./assets/png/basket.png" alt="empty Basket">
         </div>
-        <div class="subtotal" id="subtotalBasket"><p>Subtotal</p><p>€</p></div>
-        <div class="deliveryFee" id="deliveryFeeBasket"><p>Delivery Fee</p><p> €</p></div>
-        <div class="totalprice" id="totalPriceBasket">Total</div>
+        <div class="subtotal" id="subtotalBasket"><p>Subtotal</p><span id="subtotalPrice"></span></div>
+        <div class="deliveryFee" id="deliveryFeeBasket"><p>Delivery Fee</p><span>4.99 €</span></div>
+        <div class="basket-line"></div>
+        <div class="totalprice" id="totalPriceBasket"><p>Total</p><span id="totalpricebasket"></span></div>
+        <div class="payingButton"><button onclick="orderConfirmedModal()">Buy Now: <p id="payingButtonPrice"></p></button></div>
       </div>
     
           <section class="burger-section">
@@ -125,11 +128,19 @@
     </main>
     <footer>
       Placeholder
-      <div class="totalprice">Price:</div>
     </footer>
 
     
 
-    
+    <dialog class="dialog-order-confirmed" id="orderconfirmed">
+      <div class="dialogButton">
+      <button onclick="orderConfirmedModalClose()">X</button>
+      </div>
+      <div class="dialog-picture">
+      <img src="./assets/png/order-confirmed-truck.png" alt="truck thats driving">
+      <p>Order confirmed!</p>
+      <p>Your Food is on the way!</p>
+      </div>
+    </dialog>
   </body>
 </html>

@@ -32,6 +32,7 @@
         </button>
       </div>
     </header>
+    <div class="main-wrap">
     <main>
       <section class="title-section">
         <img
@@ -64,19 +65,6 @@
       </section>
       <div class="dishes" id="burger-section">
 
-      </div>
-
-      <div class="basket-active" id="basket-add-delete">
-        <h4>Your Basket</h4>
-        <div class="basket-empty" id="empty-basket">
-        <p >Nothing there yet.<br>Go ahead and choose something <br>delicious!</p>
-        <img src="./assets/png/basket.png" alt="empty Basket">
-        </div>
-        <div class="subtotal" id="subtotalBasket"><p>Subtotal</p><span id="subtotalPrice"></span></div>
-        <div class="deliveryFee" id="deliveryFeeBasket"><p>Delivery Fee</p><span>4.99 €</span></div>
-        <div class="basket-line"></div>
-        <div class="totalprice" id="totalPriceBasket"><p>Total</p><span id="totalpricebasket"></span></div>
-        <div class="payingButton"><button onclick="orderConfirmedModal()">Buy Now: <p id="payingButtonPrice"></p></button></div>
       </div>
     
           <section class="burger-section">
@@ -127,6 +115,21 @@
       </div>
 
     </main>
+    <div class="basket-wrapper">
+    <div class="basket-active" id="basket-add-delete">
+        <h4>Your Basket</h4>
+        <div class="basket-empty" id="empty-basket">
+        <p >Nothing there yet.<br>Go ahead and choose something <br>delicious!</p>
+        <img src="./assets/png/basket.png" alt="empty Basket">
+        </div>
+        <div class="subtotal" id="subtotalBasket"><p>Subtotal</p><span id="subtotalPrice"></span></div>
+        <div class="deliveryFee" id="deliveryFeeBasket"><p>Delivery Fee</p><span>4.99 €</span></div>
+        <div class="basket-line"></div>
+        <div class="totalprice" id="totalPriceBasket"><p>Total</p><span id="totalpricebasket"></span></div>
+        <div class="payingButton"><button onclick="orderConfirmedModal()">Buy Now: <p id="payingButtonPrice"></p></button></div>
+      </div>
+      </div>
+    </div>
     <footer>
       <img src="./assets/png/copyright.png" alt="">
       2026 Burgerhouse

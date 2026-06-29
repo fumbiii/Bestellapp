@@ -26,6 +26,15 @@
   font-size: 36px;
 }
 
+.basket-active ::-webkit-scrollbar-thumb {
+  background: #f5deb4;
+  border-radius: 10px;
+}
+
+.basket-active ::-webkit-scrollbar {
+  width: 5px;
+}
+
 .basket-empty {
   display: flex;
   flex-direction: column;
@@ -163,11 +172,3 @@
   cursor: pointer;
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #f5deb4;
-  border-radius: 10px;
-}

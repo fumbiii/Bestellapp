@@ -159,11 +159,16 @@ function payingButtonBasket(){
 }
 
 function orderConfirmedModal() {
-  document.getElementById("orderconfirmed").showModal();
+  const modal = document.getElementById("orderconfirmed");
+  modal.showModal();
+  modal.classList.remove("fade-out");
+  setTimeout(orderConfirmedModalClose, 2500);
 }
 
 function orderConfirmedModalClose() {
-  document.getElementById("orderconfirmed").close();
+  const modal = document.getElementById("orderconfirmed");
+  modal.classList.add("fade-out");
+  setTimeout(() => modal.close(), 300);
   basket.splice(0);
   localStorage.setItem("basket", JSON.stringify(basket));
   updateBasket();

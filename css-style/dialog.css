@@ -1,13 +1,33 @@
-.dialog-order-confirmed{
+.dialog-order-confirmed {
   border: none;
   background-color: #363534;
   height: 400px;
   width: 500px;
   border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.dialog-order-confirmed::backdrop{
-    background-color: rgba(181, 180, 180, 75%)
+.dialog-order-confirmed[open] {
+  opacity: 1;
+}
+
+.dialog-order-confirmed.fade-out {
+  opacity: 0;
+}
+
+.dialog-order-confirmed::backdrop {
+  background-color: rgba(181, 180, 180, 0.75);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dialog-order-confirmed[open]::backdrop {
+  opacity: 1;
+}
+
+.dialog-order-confirmed.fade-out::backdrop {
+  opacity: 0;
 }
 
 .dialogButton {

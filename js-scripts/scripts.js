@@ -34,7 +34,7 @@ function renderDishes() {
             </div>
             <div class="dish-price-and-add-button">
             <p class="dish-price">${dish.price} €</p>
-            <button class="add-to-basket-btn" onclick="addToBasket('${dish.name}')">Add to Basket</button>
+            <button class="add-to-basket-btn" data-dish-name="${dish.name}" onclick="addToBasket('${dish.name}', this)">Add to Basket</button>
             </div>
         `;
 
@@ -42,19 +42,22 @@ function renderDishes() {
   });
 }
 
-function addToBasket(dishName) {
+function addToBasket(dishName, button) {
   const dish = dishes.find((d) => d.name === dishName);
   const existing = basket.find((item) => item.name === dishName);
 
   if (existing) {
-    existing.count++;
+    existing.count = (existing.count || 1) + 1;
   } else {
     dish.count = 1;
     basket.push(dish);
   }
 
+  const count = existing ? existing.count : dish.count;
+
   localStorage.setItem("basket", JSON.stringify(basket));
   updateBasket();
+  addToBasketChange(dishName, count);
 }
 
 function updateBasket() {
@@ -105,6 +108,7 @@ function addCounter(index) {
     basket[index].count = (basket[index].count || 1) + 1;
     localStorage.setItem("basket", JSON.stringify(basket));
     updateBasket();
+    addToBasketChange(basket[index].name, basket[index].count);
   }
   subtotalPriceCaltulation();
   totalPriceCalculation();
@@ -113,10 +117,14 @@ function addCounter(index) {
 
 function decreaseCounter(index) {
   if (basket[index]) {
-    basket[index].count = (basket[index].count || 1) - 1;
+    const dish = basket[index];
+    dish.count = (dish.count || 1) - 1;
 
-    if (basket[index].count <= 0) {
+    if (dish.count <= 0) {
       basket.splice(index, 1);
+      addToBasketChange(dish.name, 0);
+    } else {
+      addToBasketChange(dish.name, dish.count);
     }
 
     localStorage.setItem("basket", JSON.stringify(basket));
@@ -172,4 +180,19 @@ function orderConfirmedModalClose() {
   basket.splice(0);
   localStorage.setItem("basket", JSON.stringify(basket));
   updateBasket();
+}
+
+function addToBasketChange(dishName, count) {
+  const buttons = document.querySelectorAll(".add-to-basket-btn");
+  const button = Array.from(buttons).find((btn) => btn.dataset.dishName === dishName);
+
+  if (button) {
+    if (count > 0) {
+      button.textContent = `Added ${count}`;
+      button.classList.add("is-added");
+    } else {
+      button.textContent = "Add to Basket";
+      button.classList.remove("is-added");
+    }
+  }
 }

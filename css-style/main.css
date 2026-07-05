@@ -78,7 +78,6 @@
 
 .dish-name-and-ingredients {
   width: 350px;
-  padding-right: 25px;
   height: 110px;
 }
 
@@ -101,22 +100,24 @@
 }
 
 .add-to-basket-btn.is-added {
-  background-color: #2e7d32;
-  color: white;
+  background-color: white;
+  color: #e76c1f;
+  font-weight: bold;
 }
 
 .dish-price {
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
 }
 
 .add-to-basket-btn {
-  width: 60px;
+  width: 120px;
   height: 30px;
-  font-size: 12px;
+  font-size: 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  padding-right: 10px;
 }
 
 .dishes {
@@ -128,9 +129,42 @@
   padding-left: 10px;
 }
 
-.main-wrap{
+.main-wrap {
   display: flex;
   flex-direction: row;
   max-width: 1920px;
   width: 100%;
+}
+
+.navigation-for-phones {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #363534;
+  height: 60px;
+}
+
+.Home-Button-for-Phone {
+  background-color: #363534;
+  border: none;
+  cursor: pointer;
+}
+
+.Profile-Button-for-Phone {
+  background-color: #363534;
+  border: none;
+  cursor: pointer;
+}
+
+.Website-Button-for-Phone {
+  background-color: #363534;
+  border: none;
+  cursor: pointer;
+}
+
+.Basket-Button-for-Phone {
+  background-color: #363534;
+  border: none;
+  cursor: pointer;
 }

@@ -67,14 +67,16 @@ function updateBasket() {
     .map(
       (dish, index) => `
       <div class="dish-in-basket">
+      <div class="dish-in-basket-active">
         <p class="headerDishInBasket">
-          <span id="dishCounter-meals-${index}">${dish.count || 1}</span> x ${dish.name}
+          <span id="dishCounter-meals-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
         </p>
+        </div>
         <div class="basketButtonsAndPrice">
           <div class="add-delete-buttons" id="add-delete-buttons-basket-${index}">
             <button class="deleteDishFromBasket" onclick="decreaseCounter(${index})" 
               id="deleteDishFromBasket-${index}">
-              ${(dish.count || 1) >= 2 ? '-' : '<img src="./assets/png/delete.png">'}
+              ${(dish.count || 1) >= 2 ? "-" : '<img src="./assets/png/delete.png">'}
             </button>
             <p id="dishCounter-basket-${index}">${dish.count || 1}</p>
             <button class="addMoreDishes" onclick="addCounter(${index})">+</button>
@@ -85,8 +87,6 @@ function updateBasket() {
         </div>
       </div>
     `,
-
-  
     )
     .join("");
 
@@ -137,33 +137,36 @@ function decreaseCounter(index) {
 
 function subtotalPriceCaltulation() {
   const subtotal = basket.reduce((total, dish) => {
-    return total + (dish.price * (dish.count || 1));
+    return total + dish.price * (dish.count || 1);
   }, 0);
-  
-  document.getElementById("subtotalPrice").innerHTML = `<p>${subtotal.toFixed(2)} €</p>`;
+
+  document.getElementById("subtotalPrice").innerHTML =
+    `<p>${subtotal.toFixed(2)} €</p>`;
 }
 
 function totalPriceCalculation() {
   const subtotal = basket.reduce((total, dish) => {
-    return total + (dish.price * (dish.count || 1));
+    return total + dish.price * (dish.count || 1);
   }, 0);
   let baskettotal = subtotal + 4.99;
   if (basket.length <= 0) {
     baskettotal = 0;
   }
-  document.getElementById("totalpricebasket").innerHTML = `<p>${baskettotal.toFixed(2)} €</p>`;
+  document.getElementById("totalpricebasket").innerHTML =
+    `<p>${baskettotal.toFixed(2)} €</p>`;
 }
 
-function payingButtonBasket(){
-   const subtotal = basket.reduce((total, dish) => {
-    return total + (dish.price * (dish.count || 1));
+function payingButtonBasket() {
+  const subtotal = basket.reduce((total, dish) => {
+    return total + dish.price * (dish.count || 1);
   }, 0);
   let baskettotal = subtotal + 4.99;
 
   if (basket.length <= 0) {
     baskettotal = 0;
   }
-  document.getElementById("payingButtonPrice").innerHTML = `<p>${baskettotal.toFixed(2)} €</p>`;
+  document.getElementById("payingButtonPrice").innerHTML =
+    `<p>${baskettotal.toFixed(2)} €</p>`;
 }
 
 function orderConfirmedModal() {
@@ -184,7 +187,9 @@ function orderConfirmedModalClose() {
 
 function addToBasketChange(dishName, count) {
   const buttons = document.querySelectorAll(".add-to-basket-btn");
-  const button = Array.from(buttons).find((btn) => btn.dataset.dishName === dishName);
+  const button = Array.from(buttons).find(
+    (btn) => btn.dataset.dishName === dishName,
+  );
 
   if (button) {
     if (count > 0) {

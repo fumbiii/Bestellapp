@@ -63,9 +63,15 @@
   margin: 5px;
 }
 
+.dish-in-basket-active {
+  display: flex;
+  padding-left: 7px;
+}
+
 .headerDishInBasket {
   display: flex;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .basketButtonsAndPrice {

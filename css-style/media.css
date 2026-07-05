@@ -1,0 +1,96 @@
+@media (max-width: 1440px) {
+  .burger-section {
+    width: 100%;
+  }
+
+  .burger-header {
+    width: 90%;
+    padding-left: 0;
+  }
+
+  .dishes {
+    padding-left: 0;
+    
+    }
+
+  .basket-active {
+    width: 400px;
+    height: 700px;
+  }
+
+  .basket-wrapper {
+    right: 400px;
+    top: 725px;
+  }
+
+  .basket-active h4 {
+    font-size: 28px;
+  }
+
+  .basket-empty,
+  .subtotal,
+  .deliveryFee,
+  .basket-line,
+  .totalprice,
+  .payingButton {
+    width: 350px;
+  }
+
+  .subtotal,
+  .deliveryFee {
+    font-size: 18px;
+  }
+
+  .payingButton {
+    height: 50px;
+    padding-bottom: 40px;
+    font-size: 20px;
+  }
+
+  .totalprice {
+    font-size: 20px;
+  }
+
+  .dish-in-basket {
+    width: 300px;
+  }
+
+  .dish-in-basket-active {
+    display: flex;
+  }
+}
+
+@media (max-width: 1250px) {
+  .dishes {
+    width: 1150px;
+  }
+}
+
+@media (max-width: 750px) {
+  .title-section h1 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .title-section h1 {
+    width: 300px;
+    text-align: center;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .burger-house-title {
+    width: 650px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 350px) {
+  .burger-house-title {
+    width: 550px;
+    height: 50px;
+  }
+}

@@ -1,10 +1,7 @@
 @media (max-width: 1440px) {
-  .burger-section {
-    width: 100%;
-  }
 
   .burger-header {
-    width: 90%;
+    width: 60%;
     padding-left: 0;
   }
 
@@ -58,17 +55,82 @@
   .dish-in-basket-active {
     display: flex;
   }
+
+  .dishes {
+    width: 100%;
+  }
+  .burger-section {
+    width: 1440px;
+  }
 }
 
 @media (max-width: 1250px) {
+    .basket-active {
+    width: 300px;
+    height: 600px;
+  }
+
+  .dish {
+    width: 580px;
+  }
+
+  .basket-empty,
+  .subtotal,
+  .deliveryFee,
+  .basket-line,
+  .totalprice,
+  .payingButton {
+    width: 250px;
+  }
+
+  .basket-empty img {
+    height: 75px;
+    width: 75px;
+  }
+
+  .basket-empty p {
+    font-size: 16px;
+  }
+
+  .basket-wrapper{
+    right: 300px;
+  }
+
+  .add-to-basket-btn {
+    width: 70px;
+    margin-right: 20px;
+    height: 40px;
+  }
+
+  .burger-header {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .basket-wrapper{
+    display: none;
+  }
   .dishes {
-    width: 1150px;
+    width: auto;
+    align-self: center;
+  }
+  .burger-header img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .burger-section {
+    width: 1250px;
   }
 }
 
 @media (max-width: 750px) {
   .title-section h1 {
     font-size: 16px;
+  }
+  .burger-section {
+    width: 750px;
   }
 }
 

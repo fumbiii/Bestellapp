@@ -3,6 +3,7 @@ const dialog = document.getElementById("dialog");
 
 function init() {
   renderDishes();
+  handleLayoutChange(vieportWidth);
 }
 
 function renderDishes() {
@@ -201,3 +202,18 @@ function addToBasketChange(dishName, count) {
     }
   }
 }
+
+function basketCounterForPhoneView() {
+  const basketcounter = document.getElementById("phone-Basket");
+  basketcounter.innerHTML = `<button class="Basket-Button-for-Phone" id="phone-Basket"><img src="./assets/png/Shopping Cart for Phone.png" alt=""><p class="Basketcounter-for-phone-view"></p> </button>`;
+}
+
+const vieportWidth = window.matchMedia('(max-width: 1000px)');
+
+function handleLayoutChange(vieportWidth) {
+  if (vieportWidth.matches) {
+    basketCounterForPhoneView();
+  }
+}
+
+vieportWidth.addEventListener('change', handleLayoutChange);

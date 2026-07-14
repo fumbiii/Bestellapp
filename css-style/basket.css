@@ -178,3 +178,16 @@
   cursor: pointer;
 }
 
+.Basketcounter-for-phone-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  top: -5px;
+  margin-left: 15px;
+  background-color: #fdeadc;
+  color: #e76c1f;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}

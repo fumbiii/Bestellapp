@@ -86,7 +86,7 @@
     width: 75px;
   }
 
-  .deleteDishFromBasket img{
+  .deleteDishFromBasket img {
     height: 30px;
     width: 30px;
   }
@@ -145,6 +145,48 @@
   .burger-section {
     width: 750px;
   }
+  .dish {
+    display: block;
+    width: 400px;
+    height: 270px;
+  }
+  .dish-image {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 10px;
+    width: 400px;
+    height: 100px;
+  }
+  .dish-image img {
+    height: 100px;
+    object-fit: cover;
+    width: 350px;
+    border-radius: 8px;
+  }
+  .dish-name-and-ingredients {
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    width: 380px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 60px;
+  }
+  .dish-ingredients {
+    text-align: center;
+  }
+
+  .dish-price-and-add-button{
+    flex-direction: row;
+    width: 400px;
+    padding-left: 10px;
+  }
+  .dish-price-and-add-button p {
+    font-weight: bold;
+  }
 }
 
 @media (max-width: 500px) {
@@ -161,11 +203,70 @@
     width: 650px;
     height: 60px;
   }
+  .burger-header{
+    width: 40%;
+    margin-top: 5px;
+  }
+  .burger-header img{
+    height: 50px;
+    width: 50px;
+  }
+  .burger-header h2{
+    font-size: 25px;
+  }
+  .dish {
+    width: 320px;
+  }
+  .dish-image {
+    width: 320px;
+  }
+  .dish-image img {
+    width: 300px;
+  }
+  .dish-name-and-ingredients{
+    width: 320px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .dish-price-and-add-button{
+    width: 320px;
+  }
+  .dish-price-and-add-button {
+    width: 320px;
+  }
+  .add-to-basket-btn {
+    width: 120px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 350px) {
   .burger-house-title {
     width: 550px;
     height: 50px;
+  }
+  .dish {
+    width: 280px;
+  }
+  .dish-image {
+    width: 280px;
+  }
+  .dish-image img {
+    width: 260px;
+  }
+  .dish-name-and-ingredients{
+    text-align: center;
+    width: 280px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .dish-name-and-ingredients h3{
+    width: 260px;
+  }
+  .dish-price-and-add-button{
+    width: 280px;
+  }
+  .dish-price-and-add-button {
+    width: 280px;
   }
 }

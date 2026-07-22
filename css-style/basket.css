@@ -1,7 +1,7 @@
-.basket-wrapper{
+.basket-wrapper {
   position: relative;
   right: 500px;
-  top:700px;
+  top: 700px;
   max-height: 2080px;
 }
 
@@ -46,8 +46,7 @@
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;
-      margin-bottom: 80px;
-
+  margin-bottom: 80px;
 }
 
 .basket-empty img {
@@ -182,7 +181,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position:absolute;
+  position: absolute;
   top: -5px;
   margin-left: 15px;
   background-color: #fdeadc;
@@ -190,4 +189,160 @@
   border-radius: 50%;
   width: 20px;
   height: 20px;
+}
+
+.basket-for-phone-view {
+  position: sticky;
+  right: 240px;
+  top: 0px;
+  height: 880px;
+  width: 500px;
+  background-color: #363534;
+  border-radius: 20px 0px 0px 20px;
+  color: #fdeadc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.basket-empty-for-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  width: 450px;
+  height: 410px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-bottom: 80px;
+}
+.basket-empty-for-phone img {
+  height: 150px;
+  width: 150px;
+}
+
+.dish-in-basket-for-phone {
+  background-color: #f5deb3;
+  color: black;
+  border-radius: 10px;
+  width: 400px;
+  margin: 5px;
+}
+
+.dish-in-basket-active-for-phone {
+  display: flex;
+  padding-left: 7px;
+}
+
+.headerDishInBasket-for-phone {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.basketButtonsAndPrice-for-phone {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 7px;
+  padding-right: 10px;
+}
+
+.deleteDishFromBasket-for-phone {
+  background-color: #f5deb3;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.deleteDishFromBasket-for-phone img {
+  width: 30px;
+  height: 30px;
+}
+
+.addMoreDishes-for-phone {
+  border: none;
+  background-color: #f5deb3;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  font-size: 20px;
+}
+
+.add-delete-buttons-for-phone {
+  display: flex;
+  align-items: center;
+}
+
+.deleteDishFromBasket-for-phone {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.subtotal-for-phone{
+  width: 400px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.deliveryFee-for-phone {
+  width: 400px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.totalprice-for-phone {
+  display: flex;
+  width: 400px;
+  align-items: flex-end;
+  height: 50px;
+  font-size: 25px;
+  justify-content: space-between;
+}
+
+.totalprice-for-phone P {
+  margin: 0;
+}
+
+.basket-line-for-phone {
+  border: 1px;
+  width: 400px;
+  height: 5px;
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.payingButton-for-phone {
+  display: flex;
+  margin-top: 15px;
+}
+
+.payingButton-for-phone button {
+  width: 400px;
+  height: 70px;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #e76c1f;
+  color: white;
+  cursor: pointer;
 }

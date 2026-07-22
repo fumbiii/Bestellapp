@@ -58,6 +58,7 @@ function addToBasket(dishName, button) {
 
   localStorage.setItem("basket", JSON.stringify(basket));
   updateBasket();
+  updateBasketForPhone();
   addToBasketChange(dishName, count);
 }
 
@@ -67,20 +68,20 @@ function updateBasket() {
   basketContainer.innerHTML = basket
     .map(
       (dish, index) => `
-      <div class="dish-in-basket">
-      <div class="dish-in-basket-active">
-        <p class="headerDishInBasket">
+      <div class="dish-in-basket dish-in-basket-for-phone">
+      <div class="dish-in-basket-active dish-in-basket-active-for-phone">
+        <p class="headerDishInBasket headerDishInBasket-for-phone">
           <span id="dishCounter-meals-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
         </p>
         </div>
-        <div class="basketButtonsAndPrice">
-          <div class="add-delete-buttons" id="add-delete-buttons-basket-${index}">
-            <button class="deleteDishFromBasket" onclick="decreaseCounter(${index})" 
+        <div class="basketButtonsAndPrice basketButtonsAndPrice-for-phone">
+          <div class="add-delete-buttons add-delete-buttons-for-phone" id="add-delete-buttons-basket-${index}">
+            <button class="deleteDishFromBasket deleteDishFromBasket-for-phone" onclick="decreaseCounter(${index})" 
               id="deleteDishFromBasket-${index}">
               ${(dish.count || 1) >= 2 ? "-" : '<img src="./assets/png/delete.png">'}
             </button>
             <p id="dishCounter-basket-${index}">${dish.count || 1}</p>
-            <button class="addMoreDishes" onclick="addCounter(${index})">+</button>
+            <button class="addMoreDishes addMoreDishes-for-phone" onclick="addCounter(${index})">+</button>
           </div>
           <div>
             <p id="dishPriceInBasket">${(dish.price * (dish.count || 1)).toFixed(2)} €</p>
@@ -102,6 +103,51 @@ function updateBasket() {
   subtotalPriceCaltulation();
   totalPriceCalculation();
   payingButtonBasket();
+  updatePhoneBasketCounter();
+}
+
+function updateBasketForPhone() {
+  const basketContainer = document.getElementById("empty-basket-for-phone");
+
+  basketContainer.innerHTML = basket
+    .map(
+      (dish, index) => `
+      <div class="dish-in-basket-for-phone">
+      <div class="dish-in-basket-active-for-phone">
+        <p class="headerDishInBasket-for-phone">
+          <span id="dishCounter-meals-for-phone-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
+        </p>
+        </div>
+        <div class="basketButtonsAndPrice-for-phone">
+          <div class="add-delete-buttons-for-phone" id="add-delete-buttons-basket-for-phone-${index}">
+            <button class="deleteDishFromBasket-for-phone" onclick="decreaseCounter(${index})" 
+              id="deleteDishFromBasket-for-phone-${index}">
+              ${(dish.count || 1) >= 2 ? "-" : '<img src="./assets/png/delete.png">'}
+            </button>
+            <p id="dishCounter-basket-for-phone-${index}">${dish.count || 1}</p>
+            <button class="addMoreDishes-for-phone" onclick="addCounter(${index})">+</button>
+          </div>
+          <div>
+            <p id="dishPriceInBasket-for-phone">${(dish.price * (dish.count || 1)).toFixed(2)} €</p>
+          </div>
+        </div>
+      </div>
+    `,
+    )
+    .join("");
+
+  basket.forEach((dish, index) => {
+    const counterElement = document.getElementById(
+      `dishCounter-basket-${index}`,
+    );
+    if (counterElement) {
+      counterElement.innerHTML = dish.count || 1;
+    }
+  });
+  subtotalPriceCaltulation();
+  totalPriceCalculation();
+  payingButtonBasket();
+  updatePhoneBasketCounter();
 }
 
 function addCounter(index) {
@@ -109,6 +155,7 @@ function addCounter(index) {
     basket[index].count = (basket[index].count || 1) + 1;
     localStorage.setItem("basket", JSON.stringify(basket));
     updateBasket();
+    updateBasketForPhone();
     addToBasketChange(basket[index].name, basket[index].count);
   }
   subtotalPriceCaltulation();
@@ -130,6 +177,7 @@ function decreaseCounter(index) {
 
     localStorage.setItem("basket", JSON.stringify(basket));
     updateBasket();
+    updateBasketForPhone();
   }
   subtotalPriceCaltulation();
   totalPriceCalculation();
@@ -184,6 +232,7 @@ function orderConfirmedModalClose() {
   basket.splice(0);
   localStorage.setItem("basket", JSON.stringify(basket));
   updateBasket();
+  updateBasketForPhone();
 }
 
 function addToBasketChange(dishName, count) {
@@ -217,3 +266,11 @@ function handleLayoutChange(vieportWidth) {
 }
 
 vieportWidth.addEventListener('change', handleLayoutChange);
+
+function updatePhoneBasketCounter() {
+  const counter = document.querySelector(".Basketcounter-for-phone-view");
+  if (!counter) return;
+
+  const totalItems = basket.reduce((sum, dish) => sum + (dish.count || 1), 0);
+  counter.textContent = totalItems > 0 ? totalItems : "";
+}

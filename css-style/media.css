@@ -10,7 +10,7 @@
 
   .basket-active {
     width: 400px;
-    height: 700px;
+    height: 670px;
   }
 
   .basket-wrapper {
@@ -50,6 +50,11 @@
     width: 300px;
   }
 
+  .dish-in-basket p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .dish-in-basket-active {
     display: flex;
   }
@@ -65,7 +70,7 @@
 @media (max-width: 1250px) {
   .basket-active {
     width: 300px;
-    height: 600px;
+    height: 660px;
   }
 
   .dish {
@@ -78,7 +83,7 @@
   .basket-line,
   .totalprice,
   .payingButton {
-    width: 250px;
+    width: 270px;
   }
 
   .basket-empty img {
@@ -136,6 +141,14 @@
     bottom: 0px;
     z-index: 2;
   }
+  .basket-for-phone-view {
+    display: flex;
+  }
+
+  .basket-for-phone-view h4{
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 750px) {
@@ -169,7 +182,7 @@
   .dish-name-and-ingredients {
     display: flex;
     flex-direction: column;
-    align-items: center ;
+    align-items: center;
     width: 380px;
     margin-left: 10px;
     margin-right: 10px;
@@ -179,13 +192,39 @@
     text-align: center;
   }
 
-  .dish-price-and-add-button{
+  .dish-price-and-add-button {
     flex-direction: row;
     width: 400px;
     padding-left: 10px;
   }
   .dish-price-and-add-button p {
     font-weight: bold;
+  }
+
+  .basket-for-phone-view {
+    width: 400px;
+    height: 800px;
+  }
+
+  .basket-empty-for-phone{
+    width: 380px;
+  }
+
+  .subtotal-for-phone,
+  .deliveryFee-for-phone,
+  .basket-line-for-phone,
+  .totalprice-for-phone,
+  .payingButton-for-phone {
+    width: 350px;
+  }
+
+  .basket-empty-for-phone img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .dish-in-basket-for-phone {
+    width: 360px;
   }
 }
 
@@ -203,15 +242,15 @@
     width: 650px;
     height: 60px;
   }
-  .burger-header{
+  .burger-header {
     width: 40%;
     margin-top: 5px;
   }
-  .burger-header img{
+  .burger-header img {
     height: 50px;
     width: 50px;
   }
-  .burger-header h2{
+  .burger-header h2 {
     font-size: 25px;
   }
   .dish {
@@ -223,12 +262,12 @@
   .dish-image img {
     width: 300px;
   }
-  .dish-name-and-ingredients{
+  .dish-name-and-ingredients {
     width: 320px;
     margin-left: 0px;
     margin-right: 0px;
   }
-  .dish-price-and-add-button{
+  .dish-price-and-add-button {
     width: 320px;
   }
   .dish-price-and-add-button {
@@ -237,6 +276,45 @@
   .add-to-basket-btn {
     width: 120px;
     height: 20px;
+  }
+
+  .basket-for-phone-view {
+    width: 320px;
+    height: 710px;
+  }
+
+  .basket-empty-for-phone{
+    width: 300px;
+    height: 330px;
+  }
+
+  .basket-for-phone-view h4{
+    font-size: 25px;}
+    
+
+  .subtotal-for-phone,
+  .deliveryFee-for-phone,
+  .basket-line-for-phone,
+  .totalprice-for-phone,
+  .payingButton-for-phone {
+    width: 270px;
+    font-size: 20px;
+  }
+
+  .payingButton-for-phone {
+    font-size: 20px;
+  }
+
+  .basket-empty-for-phone img {
+    height: 25px;
+    width: 25px;
+  }
+
+  .basket-empty-for-phone p {
+    font-size: 16px;
+  }
+  .dish-in-basket-for-phone {
+    width: 280px;
   }
 }
 
@@ -254,19 +332,43 @@
   .dish-image img {
     width: 260px;
   }
-  .dish-name-and-ingredients{
+  .dish-name-and-ingredients {
     text-align: center;
     width: 280px;
     margin-left: 0px;
     margin-right: 0px;
   }
-  .dish-name-and-ingredients h3{
+  .dish-name-and-ingredients h3 {
     width: 260px;
   }
-  .dish-price-and-add-button{
+  .dish-price-and-add-button {
     width: 280px;
   }
   .dish-price-and-add-button {
     width: 280px;
+  }
+
+  .basket-for-phone-view {
+    width: 280px;
+  }
+
+  .subtotal-for-phone,
+  .deliveryFee-for-phone,
+  .basket-line-for-phone,
+  .totalprice-for-phone,
+  .payingButton-for-phone {
+    width: 230px;
+  }
+
+  .basket-empty-for-phone img {
+    height: 25px;
+    width: 25px;
+  }
+
+  .dish-in-basket-for-phone {
+    width: 250px;
+  }
+  .basket-empty-for-phone{
+    width: 270px;
   }
 }

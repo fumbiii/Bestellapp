@@ -177,6 +177,16 @@
   cursor: pointer;
 }
 
+.basket-for-phone-view ::-webkit-scrollbar-thumb {
+  background: #f5deb4;
+  border-radius: 10px;
+}
+
+.basket-for-phone-view ::-webkit-scrollbar {
+  width: 5px;
+}
+
+
 .Basketcounter-for-phone-view {
   display: flex;
   align-items: center;
@@ -193,14 +203,13 @@
 
 .basket-for-phone-view {
   position: sticky;
-  right: 240px;
-  top: 0px;
+  bottom: 60px;
   height: 880px;
   width: 500px;
   background-color: #363534;
-  border-radius: 20px 0px 0px 20px;
+  border-radius: 20px 20px 0px 0px;
   color: #fdeadc;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   z-index: 2;

@@ -46,6 +46,8 @@ function renderDishes() {
 function addToBasket(dishName, button) {
   const dish = dishes.find((d) => d.name === dishName);
   const existing = basket.find((item) => item.name === dishName);
+  const basketElement = document.querySelector(".basket-active");
+  const basketElementPhone = document.querySelector(".basket-for-phone-view");
 
   if (existing) {
     existing.count = (existing.count || 1) + 1;
@@ -53,6 +55,15 @@ function addToBasket(dishName, button) {
     dish.count = 1;
     basket.push(dish);
   }
+
+  if (basketElement){
+    basketElement.style.display = "flex";
+  }
+
+  if (basketElementPhone){
+    basketElementPhone.style.display = "flex";
+  }
+  
 
   const count = existing ? existing.count : dish.count;
 
@@ -220,9 +231,17 @@ function payingButtonBasket() {
 
 function orderConfirmedModal() {
   const modal = document.getElementById("orderconfirmed");
+  const basketElement = document.querySelector(".basket-active");
+   const basketElementPhone = document.querySelector(".basket-for-phone-view");
   modal.showModal();
   modal.classList.remove("fade-out");
   setTimeout(orderConfirmedModalClose, 2500);
+  if (basketElement) {
+    basketElement.style.display = "none";
+  }
+  if (basketElementPhone) {
+    basketElementPhone.style.display = "none";
+  }
 }
 
 function orderConfirmedModalClose() {
@@ -254,7 +273,7 @@ function addToBasketChange(dishName, count) {
 
 function basketCounterForPhoneView() {
   const basketcounter = document.getElementById("phone-Basket");
-  basketcounter.innerHTML = `<button class="Basket-Button-for-Phone" id="phone-Basket"><img src="./assets/png/Shopping Cart for Phone.png" alt=""><p class="Basketcounter-for-phone-view"></p> </button>`;
+  basketcounter.innerHTML = `<button class="Basket-Button-for-Phone" id="phone-Basket" onclick="openPhoneBasketButton()"><img src="./assets/png/Shopping Cart for Phone.png" alt=""><p class="Basketcounter-for-phone-view"></p> </button>`;
 }
 
 const vieportWidth = window.matchMedia('(max-width: 1000px)');
@@ -273,4 +292,19 @@ function updatePhoneBasketCounter() {
 
   const totalItems = basket.reduce((sum, dish) => sum + (dish.count || 1), 0);
   counter.textContent = totalItems > 0 ? totalItems : "";
+}
+
+function openPhoneBasketButton() {
+  const basketElement = document.querySelector(".basket-for-phone-view")
+
+  if (!basketElement) return;
+
+  const currentDisplay = window.getComputedStyle(basketElement).display;
+
+  if (currentDisplay === "flex"){
+    basketElement.style.display = "none";
+  }
+  else{
+    basketElement.style.display = "flex";
+  }
 }

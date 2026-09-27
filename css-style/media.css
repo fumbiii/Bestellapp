@@ -1,3 +1,9 @@
+@media (min-width: 1000px) {
+  .basket-for-phone-view{
+    display: none !important;
+  }
+}
+
 @media (max-width: 1440px) {
   .burger-header {
     width: 60%;

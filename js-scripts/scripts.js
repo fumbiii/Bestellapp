@@ -4,6 +4,7 @@ const dialog = document.getElementById("dialog");
 function init() {
   renderDishes();
   handleLayoutChange(vieportWidth);
+  checkBasketIfSomethingIsInIt();
 }
 
 function renderDishes() {
@@ -115,6 +116,7 @@ function updateBasket() {
   totalPriceCalculation();
   payingButtonBasket();
   updatePhoneBasketCounter();
+  checkBasketIfSomethingIsInIt();
 }
 
 function updateBasketForPhone() {
@@ -159,6 +161,7 @@ function updateBasketForPhone() {
   totalPriceCalculation();
   payingButtonBasket();
   updatePhoneBasketCounter();
+  checkBasketIfSomethingIsInItForPhone();
 }
 
 function addCounter(index) {
@@ -307,4 +310,24 @@ function openPhoneBasketButton() {
   else{
     basketElement.style.display = "flex";
   }
+}
+
+function checkBasketIfSomethingIsInIt(){
+  const basketContainer = document.getElementById("empty-basket");
+  const controls = document.getElementById("basket-add-delete");
+
+  if (!basketContainer || !controls) return;
+
+  const hasDish = basketContainer.querySelector(".dish-in-basket") !== null;
+  controls.style.display = hasDish ? "flex" : "none";
+}
+
+function checkBasketIfSomethingIsInItForPhone(){
+  const basketContainerForPhone = document.getElementById("empty-basket-for-phone");
+  const controlsForPhone = document.getElementById("basket-add-delete-for-phone");
+
+  if (!basketContainerForPhone || !controlsForPhone) return;
+  
+  const hasDishForPhone = basketContainerForPhone.querySelector(".dish-in-basket-for-phone") !== null;
+  controlsForPhone.style.display = hasDishForPhone ? "flex" : "none";
 }

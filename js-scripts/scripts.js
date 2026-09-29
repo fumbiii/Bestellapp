@@ -4,7 +4,9 @@ const dialog = document.getElementById("dialog");
 function init() {
   renderDishes();
   handleLayoutChange(vieportWidth);
-  checkBasketIfSomethingIsInIt();
+  
+  updateBasket();
+  updateBasketForPhone()
 }
 
 function renderDishes() {
@@ -57,14 +59,13 @@ function addToBasket(dishName, button) {
     basket.push(dish);
   }
 
-  if (basketElement){
+  if (basketElement) {
     basketElement.style.display = "flex";
   }
 
-  if (basketElementPhone){
+  if (basketElementPhone) {
     basketElementPhone.style.display = "flex";
   }
-  
 
   const count = existing ? existing.count : dish.count;
 
@@ -117,6 +118,9 @@ function updateBasket() {
   payingButtonBasket();
   updatePhoneBasketCounter();
   checkBasketIfSomethingIsInIt();
+  subtotalPriceCaltulationForPhone();
+  totalPriceCalculationForPhone();
+  payingButtonBasketForPhone();
 }
 
 function updateBasketForPhone() {
@@ -207,6 +211,15 @@ function subtotalPriceCaltulation() {
     `<p>${subtotal.toFixed(2)} €</p>`;
 }
 
+function subtotalPriceCaltulationForPhone() {
+  const subtotalforphone = basket.reduce((total, dish) => {
+    return total + dish.price * (dish.count || 1);
+  }, 0);
+
+  document.getElementById("subtotalPrice-for-phone").innerHTML =
+    `<p>${subtotalforphone.toFixed(2)} €</p>`;
+}
+
 function totalPriceCalculation() {
   const subtotal = basket.reduce((total, dish) => {
     return total + dish.price * (dish.count || 1);
@@ -217,6 +230,18 @@ function totalPriceCalculation() {
   }
   document.getElementById("totalpricebasket").innerHTML =
     `<p>${baskettotal.toFixed(2)} €</p>`;
+}
+
+function totalPriceCalculationForPhone() {
+  const subtotalforphone = basket.reduce((total, dish) => {
+    return total + dish.price * (dish.count || 1);
+  }, 0);
+  let baskettotalforphone = subtotalforphone + 4.99;
+  if (basket.length <= 0) {
+    baskettotalforphone = 0;
+  }
+  document.getElementById("totalpricebasket-for-phone").innerHTML =
+    `<p>${baskettotalforphone.toFixed(2)} €</p>`;
 }
 
 function payingButtonBasket() {
@@ -232,10 +257,23 @@ function payingButtonBasket() {
     `<p>${baskettotal.toFixed(2)} €</p>`;
 }
 
+function payingButtonBasketForPhone() {
+  const subtotalforphone = basket.reduce((total, dish) => {
+    return total + dish.price * (dish.count || 1);
+  }, 0);
+  let baskettotalforphone = subtotalforphone + 4.99;
+
+  if (basket.length <= 0) {
+    baskettotalforphone = 0;
+  }
+  document.getElementById("payingButtonPrice-for-phone").innerHTML =
+    `<p>${baskettotalforphone.toFixed(2)} €</p>`;
+}
+
 function orderConfirmedModal() {
   const modal = document.getElementById("orderconfirmed");
   const basketElement = document.querySelector(".basket-active");
-   const basketElementPhone = document.querySelector(".basket-for-phone-view");
+  const basketElementPhone = document.querySelector(".basket-for-phone-view");
   modal.showModal();
   modal.classList.remove("fade-out");
   setTimeout(orderConfirmedModalClose, 2500);
@@ -245,6 +283,7 @@ function orderConfirmedModal() {
   if (basketElementPhone) {
     basketElementPhone.style.display = "none";
   }
+  decreaseCounter();
 }
 
 function orderConfirmedModalClose() {
@@ -255,6 +294,9 @@ function orderConfirmedModalClose() {
   localStorage.setItem("basket", JSON.stringify(basket));
   updateBasket();
   updateBasketForPhone();
+  updateAddedButtonOnDish();
+  checkBasketIfSomethingIsInIt();
+   checkBasketIfSomethingIsInItForPhone();
 }
 
 function addToBasketChange(dishName, count) {
@@ -274,12 +316,22 @@ function addToBasketChange(dishName, count) {
   }
 }
 
+function updateAddedButtonOnDish() {
+  document.querySelectorAll(".add-to-basket-btn").forEach((button) => {
+    button.textContent = "Add to Basket";
+    button.classList.remove("is-added");
+  });
+
+  
+
+}
+
 function basketCounterForPhoneView() {
   const basketcounter = document.getElementById("phone-Basket");
   basketcounter.innerHTML = `<button class="Basket-Button-for-Phone" id="phone-Basket" onclick="openPhoneBasketButton()"><img src="./assets/png/Shopping Cart for Phone.png" alt=""><p class="Basketcounter-for-phone-view"></p> </button>`;
 }
 
-const vieportWidth = window.matchMedia('(max-width: 1000px)');
+const vieportWidth = window.matchMedia("(max-width: 1000px)");
 
 function handleLayoutChange(vieportWidth) {
   if (vieportWidth.matches) {
@@ -287,7 +339,7 @@ function handleLayoutChange(vieportWidth) {
   }
 }
 
-vieportWidth.addEventListener('change', handleLayoutChange);
+vieportWidth.addEventListener("change", handleLayoutChange);
 
 function updatePhoneBasketCounter() {
   const counter = document.querySelector(".Basketcounter-for-phone-view");
@@ -298,21 +350,20 @@ function updatePhoneBasketCounter() {
 }
 
 function openPhoneBasketButton() {
-  const basketElement = document.querySelector(".basket-for-phone-view")
+  const basketElement = document.querySelector(".basket-for-phone-view");
 
   if (!basketElement) return;
 
   const currentDisplay = window.getComputedStyle(basketElement).display;
 
-  if (currentDisplay === "flex"){
+  if (currentDisplay === "flex") {
     basketElement.style.display = "none";
-  }
-  else{
+  } else {
     basketElement.style.display = "flex";
   }
 }
 
-function checkBasketIfSomethingIsInIt(){
+function checkBasketIfSomethingIsInIt() {
   const basketContainer = document.getElementById("empty-basket");
   const controls = document.getElementById("basket-add-delete");
 
@@ -322,12 +373,17 @@ function checkBasketIfSomethingIsInIt(){
   controls.style.display = hasDish ? "flex" : "none";
 }
 
-function checkBasketIfSomethingIsInItForPhone(){
-  const basketContainerForPhone = document.getElementById("empty-basket-for-phone");
-  const controlsForPhone = document.getElementById("basket-add-delete-for-phone");
+function checkBasketIfSomethingIsInItForPhone() {
+  const basketContainerForPhone = document.getElementById(
+    "empty-basket-for-phone",
+  );
+  const controlsForPhone = document.getElementById(
+    "basket-add-delete-for-phone",
+  );
 
   if (!basketContainerForPhone || !controlsForPhone) return;
-  
-  const hasDishForPhone = basketContainerForPhone.querySelector(".dish-in-basket-for-phone") !== null;
+
+  const hasDishForPhone =
+    basketContainerForPhone.querySelector(".dish-in-basket-for-phone") !== null;
   controlsForPhone.style.display = hasDishForPhone ? "flex" : "none";
 }

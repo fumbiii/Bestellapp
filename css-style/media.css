@@ -123,6 +123,9 @@
   .burger-header {
     width: 55%;
   }
+   .dish-ingredients {
+    width: 260px;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -145,10 +148,18 @@
     display: flex;
     position: sticky;
     bottom: 0px;
-    z-index: 2;
+    z-index: 3;
   }
   .basket-for-phone-view {
-    display: flex;
+    position: fixed;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    width: min(100%, 500px);
+    max-height: calc(1000dvh - 60px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 2;
   }
 
   .basket-for-phone-view h4{
@@ -209,7 +220,6 @@
 
   .basket-for-phone-view {
     width: 400px;
-    height: 800px;
   }
 
   .basket-empty-for-phone{
@@ -231,6 +241,13 @@
 
   .dish-in-basket-for-phone {
     width: 360px;
+  }
+  .dialog-order-confirmed,
+  .dialog-picture {
+    width: 400px;
+  }
+  .dialog-picture p{
+    font-size: 25px;
   }
 }
 
@@ -286,7 +303,7 @@
 
   .basket-for-phone-view {
     width: 320px;
-    height: 710px;
+    bottom: -80px;
   }
 
   .basket-empty-for-phone{
@@ -321,6 +338,13 @@
   }
   .dish-in-basket-for-phone {
     width: 280px;
+  }
+   .dialog-order-confirmed,
+  .dialog-picture {
+    width: 280px;
+  }
+  .dialog-picture p{
+    font-size: 20px;
   }
 }
 
@@ -376,5 +400,12 @@
   }
   .basket-empty-for-phone{
     width: 270px;
+  }
+   .dialog-order-confirmed,
+  .dialog-picture {
+    width: 280px;
+  }
+  .dialog-picture p{
+    font-size: 16px;
   }
 }

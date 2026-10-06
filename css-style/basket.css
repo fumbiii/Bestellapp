@@ -1,8 +1,9 @@
 .basket-wrapper {
-  position: relative;
-  right: 500px;
+  position: absolute;
+  right: 0px;
   top: 700px;
-  max-height: 2080px;
+  bottom: 0px;
+  max-height: none;
 }
 
 .basket-active {

@@ -161,6 +161,7 @@
 .payingButton {
   display: flex;
   margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 .payingButton button {

@@ -74,8 +74,8 @@
 
 @media (max-width: 1250px) {
   .basket-active {
-    width: 300px;
-    height: 710px;
+    width: 350px;
+    height: 680px;
   }
 
   .dish {
@@ -88,7 +88,7 @@
   .basket-line,
   .totalprice,
   .payingButton {
-    width: 270px;
+    width: 290px;
   }
 
   .basket-empty img {
@@ -106,7 +106,7 @@
   }
 
   .dish-in-basket {
-    width: 250px;
+    width: 270px;
   }
 
   .add-to-basket-btn {
@@ -263,6 +263,9 @@
   .burger-house-title {
     width: 100%;
     height: 60px;
+  }
+  .burger-section {
+    align-items: normal;
   }
   .burger-header {
     width: 40%;

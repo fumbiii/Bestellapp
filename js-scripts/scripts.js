@@ -11,23 +11,22 @@ function init() {
   updateBasketForPhone();
 }
 
+const sectionsByIdCategory = {
+  "Burger & Sandwiches" : "burger-section",
+  "Pizza" : "pizza-section",
+  "Salad" : "salad-section"
+};
+
 function renderDishes() {
   dishes.forEach((dish) => {
-    let sectionId;
-    if (dish.category === "Burger & Sandwiches") {
-      sectionId = "burger-section";
-    } else if (dish.category === "Pizza") {
-      sectionId = "pizza-section";
-    } else if (dish.category === "Salad") {
-      sectionId = "salad-section";
-    } else {
-      return;
-    }
+    const sectionId = sectionsByIdCategory[dish.category];
+    if (!sectionId) return;
+
     const section = document.getElementById(sectionId);
     if (!section) return;
 
     section.insertAdjacentHTML("beforeend", getDishTemplate(dish));
-  });
+  })
 }
 
 function addToBasket(dishName, button) {

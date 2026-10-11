@@ -3,12 +3,12 @@ const dialog = document.getElementById("dialog");
 
 function init() {
   renderDishes();
-  basket.forEach((dish)=>{
+  basket.forEach((dish) => {
     addToBasketChange(dish.name, dish.count || 1);
   });
   handleLayoutChange(vieportWidth);
   updateBasket();
-  updateBasketForPhone()
+  updateBasketForPhone();
 }
 
 function renderDishes() {
@@ -23,28 +23,10 @@ function renderDishes() {
     } else {
       return;
     }
-
     const section = document.getElementById(sectionId);
     if (!section) return;
 
-    const dishDiv = document.createElement("div");
-    dishDiv.className = "dish";
-
-    dishDiv.innerHTML = `
-            <div class="dish-image">
-            <img src="${dish.image}" alt="${dish.name}">
-            </div>
-            <div class="dish-name-and-ingredients">
-            <h3 class="dish-name">${dish.name}</h3>
-            <p class="dish-ingredients">${dish.indigredients}</p>
-            </div>
-            <div class="dish-price-and-add-button">
-            <p class="dish-price">${dish.price} €</p>
-            <button class="add-to-basket-btn" data-dish-name="${dish.name}" onclick="addToBasket('${dish.name}', this)">Add to Basket</button>
-            </div>
-        `;
-
-    section.appendChild(dishDiv);
+    section.insertAdjacentHTML("beforeend", getDishTemplate(dish));
   });
 }
 
@@ -52,7 +34,6 @@ function addToBasket(dishName, button) {
   const dish = dishes.find((d) => d.name === dishName);
   const existing = basket.find((item) => item.name === dishName);
   const basketElement = document.querySelector(".basket-active");
-  const basketElementPhone = document.querySelector(".basket-for-phone-view");
 
   if (existing) {
     existing.count = (existing.count || 1) + 1;
@@ -69,47 +50,16 @@ function addToBasket(dishName, button) {
 
   localStorage.setItem("basket", JSON.stringify(basket));
   updateBasket();
+  updateBasketForPhone();
   addToBasketChange(dishName, count);
 }
 
 function updateBasket() {
   const basketContainer = document.getElementById("empty-basket");
+  if (!basketContainer) return;
 
-  basketContainer.innerHTML = basket
-    .map(
-      (dish, index) => `
-      <div class="dish-in-basket dish-in-basket-for-phone">
-      <div class="dish-in-basket-active dish-in-basket-active-for-phone">
-        <p class="headerDishInBasket headerDishInBasket-for-phone">
-          <span id="dishCounter-meals-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
-        </p>
-        </div>
-        <div class="basketButtonsAndPrice basketButtonsAndPrice-for-phone">
-          <div class="add-delete-buttons add-delete-buttons-for-phone" id="add-delete-buttons-basket-${index}">
-            <button class="deleteDishFromBasket deleteDishFromBasket-for-phone" onclick="decreaseCounter(${index})" 
-              id="deleteDishFromBasket-${index}">
-              ${(dish.count || 1) >= 2 ? "-" : '<img src="./assets/png/delete.png">'}
-            </button>
-            <p id="dishCounter-basket-${index}">${dish.count || 1}</p>
-            <button class="addMoreDishes addMoreDishes-for-phone" onclick="addCounter(${index})">+</button>
-          </div>
-          <div>
-            <p id="dishPriceInBasket">${(dish.price * (dish.count || 1)).toFixed(2)} €</p>
-          </div>
-        </div>
-      </div>
-    `,
-    )
-    .join("");
+  basketContainer.innerHTML = updateBasketTemplate(basket);
 
-  basket.forEach((dish, index) => {
-    const counterElement = document.getElementById(
-      `dishCounter-basket-${index}`,
-    );
-    if (counterElement) {
-      counterElement.innerHTML = dish.count || 1;
-    }
-  });
   subtotalPriceCaltulation();
   totalPriceCalculation();
   payingButtonBasket();
@@ -122,47 +72,13 @@ function updateBasket() {
 
 function updateBasketForPhone() {
   const basketContainer = document.getElementById("empty-basket-for-phone");
+  if (!basketContainer) return;
+  basketContainer.innerHTML = updateBasketTemplateForPhone(basket);
 
-  basketContainer.innerHTML = basket
-    .map(
-      (dish, index) => `
-      <div class="dish-in-basket-for-phone">
-      <div class="dish-in-basket-active-for-phone">
-        <p class="headerDishInBasket-for-phone">
-          <span id="dishCounter-meals-for-phone-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
-        </p>
-        </div>
-        <div class="basketButtonsAndPrice-for-phone">
-          <div class="add-delete-buttons-for-phone" id="add-delete-buttons-basket-for-phone-${index}">
-            <button class="deleteDishFromBasket-for-phone" onclick="decreaseCounter(${index})" 
-              id="deleteDishFromBasket-for-phone-${index}">
-              ${(dish.count || 1) >= 2 ? "-" : '<img src="./assets/png/delete.png">'}
-            </button>
-            <p id="dishCounter-basket-for-phone-${index}">${dish.count || 1}</p>
-            <button class="addMoreDishes-for-phone" onclick="addCounter(${index})">+</button>
-          </div>
-          <div>
-            <p id="dishPriceInBasket-for-phone">${(dish.price * (dish.count || 1)).toFixed(2)} €</p>
-          </div>
-        </div>
-      </div>
-    `,
-    )
-    .join("");
-
-  basket.forEach((dish, index) => {
-    const counterElement = document.getElementById(
-      `dishCounter-basket-${index}`,
-    );
-    if (counterElement) {
-      counterElement.innerHTML = dish.count || 1;
-    }
-  });
-  subtotalPriceCaltulation();
-  totalPriceCalculation();
-  payingButtonBasket();
+  subtotalPriceCaltulationForPhone();
+  totalPriceCalculationForPhone();
+  payingButtonBasketForPhone();
   updatePhoneBasketCounter();
-
 }
 
 function addCounter(index) {
@@ -198,6 +114,19 @@ function decreaseCounter(index) {
   totalPriceCalculation();
   payingButtonBasket();
 }
+
+function deleteDishFromBasket (index) {
+  const dish = basket[index];
+  if (!dish) return;
+
+
+  basket.splice(index, 1);
+  localStorage.setItem("basket", JSON.stringify(basket));
+  addToBasketChange(dish.name, 0);
+  updateBasket();
+  updateBasketForPhone();
+  }
+  
 
 function subtotalPriceCaltulation() {
   const subtotal = basket.reduce((total, dish) => {
@@ -293,7 +222,7 @@ function orderConfirmedModalClose() {
   updateBasketForPhone();
   updateAddedButtonOnDish();
   checkBasketIfSomethingIsInIt();
-   checkBasketIfSomethingIsInItForPhone();
+  checkBasketIfSomethingIsInItForPhone();
 }
 
 function addToBasketChange(dishName, count) {
@@ -318,9 +247,6 @@ function updateAddedButtonOnDish() {
     button.textContent = "Add to Basket";
     button.classList.remove("is-added");
   });
-
-  
-
 }
 
 function basketCounterForPhoneView() {

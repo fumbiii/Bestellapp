@@ -188,7 +188,6 @@
   width: 5px;
 }
 
-
 .Basketcounter-for-phone-view {
   display: flex;
   align-items: center;
@@ -298,7 +297,7 @@
   justify-content: center;
 }
 
-.subtotal-for-phone{
+.subtotal-for-phone {
   width: 400px;
   height: 30px;
   display: flex;
@@ -356,4 +355,21 @@
   background-color: #e76c1f;
   color: white;
   cursor: pointer;
+}
+
+.decreaseDishFromBasket {
+  display: none;
+}
+
+.decreaseDishFromBasket.is-visible {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  background-color: #f5deb3;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center ;
+  padding: 0;
 }

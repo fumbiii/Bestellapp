@@ -20,51 +20,55 @@ function getDishTemplate(dish) {
   `;
 }
 
-function updateBasketTemplate(basket) {
-  return basket
-    .map(
-      (dish, index) => `
-      <div class="dish-in-basket dish-in-basket-for-phone">
-      <div class="dish-in-basket-active dish-in-basket-active-for-phone">
-        <p class="headerDishInBasket headerDishInBasket-for-phone">
-          <span id="dishCounter-meals-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
-        </p>
-        </div>
-        <div class="basketButtonsAndPrice basketButtonsAndPrice-for-phone">
-          <div class="add-delete-buttons add-delete-buttons-for-phone" id="add-delete-buttons-basket-${index}">
-            <button class="deleteDishFromBasket deleteDishFromBasket-for-phone" onclick="deleteDishFromBasket(${index})">
+function updateBasketTemplate(dish, index) {
+  return `
+      <div class="dish-in-basket">
+        <div class="dish-in-basket-active">
+          <div class="dish-name-and-count">
+            <p class="headerDishInBasket ">
+            <span id="dishCounter-meals-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
+            </p>
+          </div>
+          <div class="delete-dish-button-second">
+            <button class="deleteDishFromBasketSecond" onclick="deleteDishFromBasket(${index})"><img src="./assets/png/delete.png" alt="Trash Bin"></button>
+          </div>
+          </div>
+          <div class="basketButtonsAndPrice ">
+          <div class="add-delete-buttons id="add-delete-buttons-basket-${index}">
+            <button class="deleteDishFromBasket" onclick="deleteDishFromBasket(${index})">
             <img src="./assets/png/delete.png" alt="Delte Dish from Basket">
             </button>
             <button class ="decreaseDishFromBasket ${(dish.count || 1) >= 2 ? "is-visible" : ""}" onclick="decreaseCounter(${index})" id="decreaseDishFromBasket"> - </button> 
             <p id="dishCounter-basket-${index}">${dish.count || 1}</p>
-            <button class="addMoreDishes addMoreDishes-for-phone" onclick="addCounter(${index})">+</button>
+            <button class="addMoreDishes" onclick="addCounter(${index})">+</button>
           </div>
           <div>
             <p id="dishPriceInBasket">${(dish.price * (dish.count || 1)).toFixed(2)} €</p>
           </div>
         </div>
       </div>
-    `,
-    )
-    .join("");
+    `;
 }
 
-function updateBasketTemplateForPhone(basket) {
-  return basket
-    .map(
-      (dish, index) => `
+function updateBasketTemplateForPhone(dish, index) {
+  return `
       <div class="dish-in-basket-for-phone">
-      <div class="dish-in-basket-active-for-phone">
-        <p class="headerDishInBasket-for-phone">
-          <span id="dishCounter-meals-for-phone-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
-        </p>
-        </div>
-        <div class="basketButtonsAndPrice-for-phone">
+        <div class="dish-in-basket-active-for-phone">
+          <div class="dish-name-and-count-for-phone">
+            <p class="headerDishInBasket-for-phone">
+            <span id="dishCounter-meals-for-phone-${index}">${dish.count || 1}</span> x <p>${dish.name}</p>
+            </p>
+          </div>
+          <div class="delete-dish-button-second-for-phone">
+            <button class="deleteDishFromBasket-for-phoneSecond" onclick="deleteDishFromBasket(${index})"><img src="./assets/png/delete.png" alt="Trash Bin"></button>
+          </div>
+          </div>
+          <div class="basketButtonsAndPrice-for-phone">
           <div class="add-delete-buttons-for-phone" id="add-delete-buttons-basket-for-phone-${index}">
-            <button class="deleteDishFromBasket-for-phone" onclick="decreaseCounter(${index})" 
-              id="deleteDishFromBasket-for-phone-${index}">
-              ${(dish.count || 1) >= 2 ? "-" : '<img src="./assets/png/delete.png">'}
-            </button>
+            <button class="deleteDishFromBasket-for-phone" onclick="deleteDishFromBasket(${index})">
+             <img src="./assets/png/delete.png" alt="Delte Dish from Basket">
+             </button>
+            <button class="decreaseDishFromBasket-for-phone ${(dish.count || 1) >= 2 ? "is-visible" : ""}" onclick="decreaseCounter(${index})" id="decreaseDishFromBasketForPhone"> - </button>
             <p id="dishCounter-basket-for-phone-${index}">${dish.count || 1}</p>
             <button class="addMoreDishes-for-phone" onclick="addCounter(${index})">+</button>
           </div>
@@ -73,7 +77,5 @@ function updateBasketTemplateForPhone(basket) {
           </div>
         </div>
       </div>
-    `,
-    )
-    .join("");
+    `;
 }

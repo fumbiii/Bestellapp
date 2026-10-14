@@ -22,7 +22,33 @@
 
 .burger-house-title {
   height: 110px;
-  width: 100%;
+  width: 75%;
+}
+
+.BurgerHouse-title-with-reviews{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.BurgerHouse-reviews{
+  width: 140px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left:  20px;
+  background-color: #FACAAC;
+  border-radius: 8px;
+}
+
+.average-stars{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.total-reviews{
+  color: #726D6D;
 }
 
 .burger-section {
@@ -31,9 +57,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   margin-top: 50px;
   background-color: #e76c1f;
+  max-width: none;
+  box-sizing: border-box;
 }
 
 .burger-header {
@@ -130,6 +158,7 @@
 }
 
 .main-wrap {
+  max-width:1440px;
   display: flex;
   position: relative;
   width: 100%;

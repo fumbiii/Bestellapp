@@ -1,7 +1,7 @@
 .basket-wrapper {
   position: absolute;
   right: 0px;
-  top: 700px;
+  top: 820px;
   bottom: 0px;
   max-height: none;
 }
@@ -65,7 +65,17 @@
 
 .dish-in-basket-active {
   display: flex;
+  justify-content: space-between;
   padding-left: 7px;
+}
+
+.dish-name-and-count{
+  display: flex;
+}
+
+.delete-dish-button-second{
+  display: flex;
+  align-items: center;
 }
 
 .headerDishInBasket {
@@ -83,16 +93,24 @@
 
 .deleteDishFromBasket {
   background-color: #f5deb3;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0;
 }
 
 .deleteDishFromBasket img {
   width: 30px;
   height: 30px;
+}
+
+.deleteDishFromBasket.hidden {
+  display: none !important;
 }
 
 .addMoreDishes {
@@ -108,14 +126,6 @@
 .add-delete-buttons {
   display: flex;
   align-items: center;
-}
-
-.deleteDishFromBasket {
-  height: 30px;
-  width: 30px;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
 }
 
 .subtotal {
@@ -244,7 +254,18 @@
 
 .dish-in-basket-active-for-phone {
   display: flex;
+  justify-content: space-between;
   padding-left: 7px;
+}
+
+.dish-name-and-count-for-phone{
+  display: flex;
+}
+
+.delete-dish-button-second-for-phone{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .headerDishInBasket-for-phone {
@@ -261,17 +282,25 @@
 }
 
 .deleteDishFromBasket-for-phone {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
   background-color: #f5deb3;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0;
 }
 
 .deleteDishFromBasket-for-phone img {
   width: 30px;
   height: 30px;
+}
+
+.deleteDishFromBasket-for-phone.hidden{
+  display: none !important;
 }
 
 .addMoreDishes-for-phone {
@@ -287,14 +316,6 @@
 .add-delete-buttons-for-phone {
   display: flex;
   align-items: center;
-}
-
-.deleteDishFromBasket-for-phone {
-  height: 30px;
-  width: 30px;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
 }
 
 .subtotal-for-phone {
@@ -370,6 +391,60 @@
   border: none;
   cursor: pointer;
   align-items: center;
-  justify-content: center ;
+  justify-content: center;
+  padding: 0;
+}
+
+.deleteDishFromBasketSecond{
+background-color: #f5deb3;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  padding-right: 10px;
+}
+
+.deleteDishFromBasketSecond img {
+  width: 30px;
+  height: 30px;
+}
+
+.deleteDishFromBasketSecond.hidden{
+  display: none !important ;
+}
+
+.deleteDishFromBasket-for-phoneSecond{
+background-color: #f5deb3;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.deleteDishFromBasket-for-phoneSecond img {
+  width: 30px;
+  height: 30px;
+}
+
+.deleteDishFromBasket-for-phoneSecond.hidden{
+  display: none !important;
+}
+
+.decreaseDishFromBasket-for-phone{
+  display: none;
+}
+
+.decreaseDishFromBasket-for-phone.is-visible {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  background-color: #f5deb3;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
   padding: 0;
 }

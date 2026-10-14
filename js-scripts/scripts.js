@@ -1,5 +1,12 @@
 let basket = JSON.parse(localStorage.getItem("basket")) || [];
 const dialog = document.getElementById("dialog");
+const vieportWidth = window.matchMedia("(max-width: 1000px)");
+vieportWidth.addEventListener("change", handleLayoutChange);
+const sectionsByIdCategory = {
+  "Burger & Sandwiches": "burger-section",
+  Pizza: "pizza-section",
+  Salad: "salad-section",
+};
 
 function init() {
   renderDishes();
@@ -11,12 +18,6 @@ function init() {
   updateBasketForPhone();
 }
 
-const sectionsByIdCategory = {
-  "Burger & Sandwiches" : "burger-section",
-  "Pizza" : "pizza-section",
-  "Salad" : "salad-section"
-};
-
 function renderDishes() {
   dishes.forEach((dish) => {
     const sectionId = sectionsByIdCategory[dish.category];
@@ -26,7 +27,7 @@ function renderDishes() {
     if (!section) return;
 
     section.insertAdjacentHTML("beforeend", getDishTemplate(dish));
-  })
+  });
 }
 
 function addToBasket(dishName, button) {
@@ -57,7 +58,9 @@ function updateBasket() {
   const basketContainer = document.getElementById("empty-basket");
   if (!basketContainer) return;
 
-  basketContainer.innerHTML = updateBasketTemplate(basket);
+  basketContainer.innerHTML = basket
+    .map((dish, index) => updateBasketTemplate(dish, index))
+    .join("");
 
   subtotalPriceCaltulation();
   totalPriceCalculation();
@@ -67,17 +70,21 @@ function updateBasket() {
   subtotalPriceCaltulationForPhone();
   totalPriceCalculationForPhone();
   payingButtonBasketForPhone();
+  switchDeleteDishButtonsPositon();
 }
 
 function updateBasketForPhone() {
   const basketContainer = document.getElementById("empty-basket-for-phone");
   if (!basketContainer) return;
-  basketContainer.innerHTML = updateBasketTemplateForPhone(basket);
+  basketContainer.innerHTML = basket
+    .map((dish, index) => updateBasketTemplateForPhone(dish, index))
+    .join("");
 
   subtotalPriceCaltulationForPhone();
   totalPriceCalculationForPhone();
   payingButtonBasketForPhone();
   updatePhoneBasketCounter();
+  switchDeleteDishButtonsPositon();
 }
 
 function addCounter(index) {
@@ -114,18 +121,16 @@ function decreaseCounter(index) {
   payingButtonBasket();
 }
 
-function deleteDishFromBasket (index) {
+function deleteDishFromBasket(index) {
   const dish = basket[index];
   if (!dish) return;
-
 
   basket.splice(index, 1);
   localStorage.setItem("basket", JSON.stringify(basket));
   addToBasketChange(dish.name, 0);
   updateBasket();
   updateBasketForPhone();
-  }
-  
+}
 
 function subtotalPriceCaltulation() {
   const subtotal = basket.reduce((total, dish) => {
@@ -253,16 +258,12 @@ function basketCounterForPhoneView() {
   basketcounter.innerHTML = `<button class="Basket-Button-for-Phone" id="phone-Basket" onclick="openPhoneBasketButton()"><img src="./assets/png/Shopping Cart for Phone.png" alt=""><p class="Basketcounter-for-phone-view"></p> </button>`;
 }
 
-const vieportWidth = window.matchMedia("(max-width: 1000px)");
-
 function handleLayoutChange(vieportWidth) {
   if (vieportWidth.matches) {
     basketCounterForPhoneView();
     updatePhoneBasketCounter();
   }
 }
-
-vieportWidth.addEventListener("change", handleLayoutChange);
 
 function updatePhoneBasketCounter() {
   const counter = document.querySelector(".Basketcounter-for-phone-view");
@@ -310,4 +311,29 @@ function checkBasketIfSomethingIsInItForPhone() {
   const hasDishForPhone =
     basketContainerForPhone.querySelector(".dish-in-basket-for-phone") !== null;
   controlsForPhone.style.display = hasDishForPhone ? "flex" : "none";
+}
+
+function switchDeleteDishButtonsPositon() {
+  const desktopItems = document.querySelectorAll(".dish-in-basket");
+  const phoneItems = document.querySelectorAll(".dish-in-basket-for-phone");
+
+  for (let i = 0; i < basket.length; i++) {
+    const useAlternate = (basket[i].count || 1) >= 2;
+    const desktopItem = desktopItems[i];
+    const phoneItem = phoneItems[i];
+
+    desktopItem
+      ?.querySelector(".deleteDishFromBasket")
+      ?.classList.toggle("hidden", useAlternate);
+    desktopItem
+      ?.querySelector(".deleteDishFromBasketSecond")
+      ?.classList.toggle("hidden", !useAlternate);
+
+    phoneItem
+      ?.querySelector(".deleteDishFromBasket-for-phone")
+      ?.classList.toggle("hidden", useAlternate);
+    phoneItem
+      ?.querySelector(".deleteDishFromBasket-for-phoneSecond")
+      ?.classList.toggle("hidden", !useAlternate);
+  }
 }
